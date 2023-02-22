@@ -1,6 +1,6 @@
-<header>
+<header id="vertical-header">
     <div id="logo">
-        
+        <h1>Name<br>Media</h1>
     </div>
     <nav>
         <ul>
@@ -10,6 +10,8 @@
             <li><a href="create.php">Create</a></li>
             <li><a href="notifications.php">Notifications</a></li>
         </ul>
-        <a href="login.php">Sign Out</a>
+        <div id="sign-out">
+            <a href="login.php">Sign Out</a>
+        </div>
     </nav>
 </header>
