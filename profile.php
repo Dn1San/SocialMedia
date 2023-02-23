@@ -16,6 +16,15 @@
         <main>
             <div class="profileHeader">
                 <img src="images/testProfilePicture.jpg" alt="Profile Picture">
+                <h2>John Doe</h2>
+                <div class="description">
+                    <p>15 Posts</p>
+                    <p>24 Friends</p>
+                    <p>User Description:  I am 20 years old • Live in Sheffield •  
+                        study at Hallam University •  study Programming Software 
+                        Engineering • I Love Anime and Basketball
+                    </p>
+                </div>
             </div>
             <div class="profilePosts">
             </div>
