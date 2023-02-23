@@ -1,6 +1,6 @@
 <header id="vertical-header">
     <div id="logo">
-        <h1>Name<br>Media</h1>
+        <h1>NAME<br>MEDIA</h1>
     </div>
     <nav>
         <ul>

@@ -30,12 +30,15 @@ header {
   white-space: nowrap;
 }
 #vertical-header h1 {
-  transform:translateY(-500%);
+  transform:translateY(-40vh);
   transform-origin: top left;
 }
 #vertical-header nav ul{
-  transform: translateX(-50%);
+  transform: translateX(-110%);
   transform-origin: top left;
+}
+#logo h1{
+  font: In;
 }
 
 /* Navigation */
@@ -45,23 +48,23 @@ nav ul {
   padding: 0;
 }
 nav li {
-  margin: 40px 10px;
+  margin: 50px 10px;
 }
 nav a {
   text-decoration: none;
-  color: #444;
-  font-size: 25px;
+  color: #222;
+  font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
 }
 #sign-out{
-  transform: translateY(500%);
+  transform: translateX(-40%)translateY(15vh);
   transform-origin: top left;
 }
 
 /* Main */
 main{
-  margin: 0px 0px 0px 280px;
+  margin: 0px 100px 0px 380px;
 }
 
 /* Profile */
@@ -74,11 +77,23 @@ main{
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin-right: 20px;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+}
+.details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 .description {
   flex: 1;
   text-align: left;
+}
+.description p {
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
 /* Links */
@@ -87,8 +102,8 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: white;
-  text-decoration: underline;
+  color: #cdcaca;
+  text-decoration: none;
 }
 
 /* Buttons */

@@ -6,10 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Name Media || *username* Friends List</title>
     <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter"/>
+    <style>
+      #logo h1{
+        font-family: Inter;
+        font-weight: 700;
+        font-size: 60px;
+        font-style: italic;
+      }
+    </style>
     <script src="js/main.js"></script>
 </head>
 <body>
-<div>
+    <div>
         <?php
             include("includes/header.php");
         ?>
