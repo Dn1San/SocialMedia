@@ -18,12 +18,15 @@
     <script src="js/main.js"></script>
 </head>
 <body>
+    <div id=logo>
+        <h1>NAME<br>MEDIA</h1>
+    </div>
     <div class="loginbox">
         <form action="" method="POST">
             <input type="text" placeholder="email or username" name="email_username"/>
             <input type="password" placeholder="password" name="password"/>
             <button class="loginbtn" type="submit" name="login">LOGIN</button>
-            <div>
+            <div id=forgotPasswordLink>
                 <a href="forgottenPassword.php">Forgotten Password?</a>
             </div>
         </form>
