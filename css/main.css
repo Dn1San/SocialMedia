@@ -37,9 +37,6 @@ header {
   transform: translateX(-110%);
   transform-origin: top left;
 }
-#logo h1{
-  font: In;
-}
 
 /* Navigation */
 nav ul {
@@ -121,8 +118,7 @@ button:hover, input[type="submit"]:hover {
 }
 
 /* Form elements */
-input[type="text"], input[type="password"], textarea, select {
-  background-color: white;
+/*input[type="text"], input[type="password"], textarea, select {
   color: black;
   border: 1px solid black;
   border-radius: 5px;
@@ -130,6 +126,18 @@ input[type="text"], input[type="password"], textarea, select {
 }
 input[type="checkbox"], input[type="radio"] {
   margin-right: 5px;
+}*/
+
+/* Login Box */
+.loginbox{
+  background-color: #999;
+  width: 400px;
+  padding: 40px;
+  overflow: hidden;
+  margin-left: 300px;
+  margin-top: 200px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,1);
+  border-radius: 5%;
 }
 
 /* Messages */
