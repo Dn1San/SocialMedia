@@ -30,7 +30,7 @@
                 <a href="forgottenPassword.php">Forgotten Password?</a>
             </div>
         </form>
-        <button class="signupbtn" name="signup" onclick="window.location.href='signup.php';">SIGN UP</button>
+        <button class="signupbtn" name="signup" onclick="window.location.href='signup.php'">SIGN UP</button>
     </div>
 </body>
 </html>

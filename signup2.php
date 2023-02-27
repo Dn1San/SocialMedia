@@ -18,6 +18,12 @@
     <script src="js/main.js"></script>
 </head>
 <body>
-    
+  <div id=logo>
+    <h1>NAME<br>MEDIA</h1>
+  </div>
+  <div class="registerbox">
+    <h2>SIGN UP</h2>
+    <p>Step: 2 of 2</p>
+    <form action="" method="POST">
 </body>
 </html>

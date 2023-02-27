@@ -31,11 +31,11 @@
             <input type="number" placeholder="Phone Number" name="phone_number"/>
             <input type="password" placeholder="Password" name="password"/>
             <input type="date" placeholder="Date Of Birth" name="date_of_birth"/>
-            <button class="registerbtn1" name="registerbtn1" onclick="window.location.href='signup2.php';">NEXT</button>
-            <div class="loginlink">
-                <span>Have an account? </span><a href="login.php">Click Here</a>
-            </div>
         </form>
+        <button class="registerbtn1" name="registerbtn1" onclick="window.location.href='signup2.php';">NEXT</button>
+        <div class="loginlink">
+            <span>Have an account? </span><a href="login.php">Click Here</a>
+        </div>
     </div>
 </body>
 </html>
