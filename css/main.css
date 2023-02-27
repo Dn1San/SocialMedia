@@ -59,6 +59,13 @@ nav a {
   transform-origin: top left;
 }
 
+/* Center */
+.center{
+  height: 100vh;
+  align-items: center;
+  position: fixed;
+}
+
 /* Main */
 main{
   margin: 0px 100px 0px 380px;
@@ -140,8 +147,8 @@ input[type="checkbox"], input[type="radio"] {
   height: 380px;
   padding: 40px;
   overflow: hidden;
-  margin-left: 300px;
-  margin-top: 200px;
+  margin-left: 60vw;
+  margin-top: 20vh;
   box-shadow: 4px rgba(0,0,0,1);
   border-radius: 5%;
 }

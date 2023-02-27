@@ -8,18 +8,25 @@
     <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter"/>
     <style>
-        #logo h1{
+        .logo h1{
             font-family: Inter;
             font-weight: 700;
             font-size: 60px;
             font-style: italic;
         }
+        .logo h2{
+        font-family: Inter;
+        font-weight: 700;
+        font-size: 27px;
+        font-style: italic;
+      }
     </style>
     <script src="js/main.js"></script>
 </head>
 <body>
-    <div id=logo>
+    <div class="logo center">
         <h1>NAME<br>MEDIA</h1>
+        <h2>We work to connect and share.</h2>
     </div>
     <div class="registerbox">
         <h2>SIGN UP</h2>
