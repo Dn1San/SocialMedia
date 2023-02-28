@@ -182,8 +182,8 @@ input[type="checkbox"], input[type="radio"] {
   width: 400px;
   padding: 40px;
   overflow: hidden;
-  margin-left: 300px;
-  margin-top: 50px;
+  margin-left: 55vw;
+  margin-top: 5vh;
   box-shadow: 4px rgba(0,0,0,1);
   border-radius: 5%;
 }
@@ -204,6 +204,11 @@ input[type="checkbox"], input[type="radio"] {
   text-align: center;
   font-size: 16px;
 }
+.registerbox textarea{
+  width: 380px;
+  height: 30vh;
+  margin-bottom: 40px;
+}
 .loginlink{
   margin-top: 20px;
   margin-left: 100px;
@@ -211,15 +216,15 @@ input[type="checkbox"], input[type="radio"] {
 
 /* Messages */
 .success {
-    color: black;
-    background-color: white;
-    border: 1px solid black;
-    padding: 10px;
-    margin-bottom: 10px;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 .error {
-    color: white;
-    background-color: black;
-    padding: 10px;
-    margin-bottom: 10px;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  margin-bottom: 10px;
 }

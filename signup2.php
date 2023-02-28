@@ -32,5 +32,15 @@
     <h2>SIGN UP</h2>
     <p>Step: 2 of 2</p>
     <form action="" method="POST">
+      <label for="profile picture">Upload profile picture</label>
+      <input type="file" id="profile picture"/>
+      <label for="description">Profile Description</label>
+      <textarea name="description" id="description"></textarea>
+    </form>
+    <button name="registerbtn2">FINISH</button>
+    <div class="loginlink">
+      <span>Have an account? </span><a href="login.php">Click Here</a>
+    </div>
+  </div>
 </body>
 </html>
