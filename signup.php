@@ -31,15 +31,15 @@
     <div class="registerbox">
         <h2>SIGN UP</h2>
         <p>Step: 1 of 2</p>
-        <form action="" method="POST">
+        <form action="includes/signup.inc.php" method="POST">
             <input type="text" placeholder="Full Name" name="full_name"/>
             <input type="text" placeholder="Username" name="username"/>
             <input type="email" placeholder="Email" name="email"/>
             <input type="number" placeholder="Phone Number" name="phone_number"/>
             <input type="password" placeholder="Password" name="password"/>
             <input type="date" placeholder="Date Of Birth" name="date_of_birth"/>
+            <button class="registerbtn1" type="submit" name="registerbtn1">NEXT</button>
         </form>
-        <button class="registerbtn1" name="registerbtn1" onclick="window.location.href='signup2.php';">NEXT</button>
         <div class="loginlink">
             <span>Have an account? </span><a href="login.php">Click Here</a>
         </div>

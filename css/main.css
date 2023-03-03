@@ -208,10 +208,54 @@ input[type="checkbox"], input[type="radio"] {
   width: 380px;
   height: 30vh;
   margin-bottom: 40px;
+  resize: none;
 }
 .loginlink{
   margin-top: 20px;
   margin-left: 100px;
+}
+
+/* Forgotten Password Box */
+.forgottenpasswordbox{
+  background-color: #bfbdbd;
+  width: 350px;
+  height: 380px;
+  padding: 40px;
+  overflow: hidden;
+  margin-left: 60vw;
+  margin-top: 20vh;
+  box-shadow: 4px rgba(0,0,0,1);
+  border-radius: 5%;
+}
+.forgottenpasswordbox h2{
+  text-align: center;
+  font-size: 35px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.forgottenpasswordbox input{
+  width: 90%;
+  display: block;
+  padding: 15px;
+  margin-bottom: 20px;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+}
+.forgottenpasswordbox span{
+  padding-bottom: 20px;
+  text-align: center;
+  font-size: 20px;
+  display: block;
+}
+.findemailbtn{
+  margin-top: 55px;
+}
+.cancelbtn{
+  margin-top: 15px;
 }
 
 /* Messages */

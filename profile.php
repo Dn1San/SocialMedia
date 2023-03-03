@@ -20,7 +20,7 @@
 <body>
     <div>
         <?php
-            include("includes/header.php");
+            include("includes/header.inc.php");
         ?>
         <main>
             <div class="profileHeader">
@@ -48,7 +48,7 @@
             </div>
         </main>
         <?php
-            include("includes/footer.php");
+            include("includes/footer.inc.php");
         ?>
     </div>
 </body>
