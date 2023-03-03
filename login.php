@@ -30,7 +30,7 @@
     </div>
     <div class="loginbox">
         <form action="" method="POST">
-            <input type="text" placeholder="email or username" name="email_username"/>
+            <input type="text" placeholder="username" name="username"/>
             <input type="password" placeholder="password" name="password"/>
             <button class="loginbtn" type="submit" name="login">LOGIN</button>
             <div id=forgotPasswordLink>
