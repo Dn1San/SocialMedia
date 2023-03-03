@@ -29,7 +29,7 @@
         <h2>We work to connect and share.</h2>
     </div>
     <div class="loginbox">
-        <form action="" method="POST">
+        <form action="includes/login.inc.php" method="POST">
             <input type="text" placeholder="username" name="username"/>
             <input type="password" placeholder="password" name="password"/>
             <button class="loginbtn" type="submit" name="login">LOGIN</button>
