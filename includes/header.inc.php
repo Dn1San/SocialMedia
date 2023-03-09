@@ -11,7 +11,7 @@
             <li><a href="notifications.php">Notifications</a></li>
         </ul>
         <div id="sign-out">
-            <a href="login.php">Sign Out</a>
+            <a href="includes/logout.inc.php">Sign Out</a>
         </div>
     </nav>
 </header>

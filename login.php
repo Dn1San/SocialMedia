@@ -25,14 +25,14 @@
 </head>
 <body>
     <div class="logo center">
-        <h1>NAME<br>MEDIA</h1>
-        <h2>We work to connect and share.</h2>
+      <h1>NAME<br>MEDIA</h1>
+      <h2>We work to connect and share.</h2>
     </div>
     <div class="loginbox">
         <form action="includes/login.inc.php" method="POST">
             <input type="text" placeholder="username" name="username"/>
             <input type="password" placeholder="password" name="password"/>
-            <button class="loginbtn" type="submit" name="login">LOGIN</button>
+            <button class="loginbtn" type="submit" name="submit">LOGIN</button>
             <div id=forgotPasswordLink>
                 <a href="forgottenPassword.php">Forgotten Password?</a>
             </div>

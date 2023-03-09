@@ -31,12 +31,12 @@
   <div class="registerbox">
     <h2>SIGN UP</h2>
     <p>Step: 2 of 2</p>
-    <form action="" method="POST">
+    <form action="includes/createProfile.inc.php" method="POST" enctype="multipart/form-data">
       <label for="profile picture">Upload profile picture</label>
-      <input type="file" name="profilePic"id="profile picture"/>
+      <input type="file" name="profilepic" id="profile picture"/>
       <label for="description">Profile Description</label>
       <textarea name="description" id="description"></textarea>
-      <button type="submit" name="registerbtn2">FINISH</button>
+      <button type="submit" name="submit">FINISH</button>
     </form>
     <div class="loginlink">
       <span>Have an account? </span><a href="login.php">Click Here</a>

@@ -62,8 +62,11 @@ nav a {
 /* Center */
 .center{
   height: 100vh;
-  align-items: center;
+  margin: 40px 100px;
   position: fixed;
+}
+.center h1{
+  margin-left: 25px;
 }
 
 /* Main */

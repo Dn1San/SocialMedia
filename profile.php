@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,9 +27,12 @@
         ?>
         <main>
             <div class="profileHeader">
-                <img src="images/testProfilePicture.jpg" alt="Profile Picture">
+                <span>
+                    <img src="images/testProfilePicture.jpg" alt="Profile Picture">
+                    Change Image
+                </span>
                 <div class="details">
-                    <h2>John Doe</h2>
+                    <h2><?php echo $_SESSION["userusername"];?></h2>
                     <div class="description">
                         <p>15 Posts</p>
                         <p>24 Friends</p>
