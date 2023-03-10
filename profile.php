@@ -19,6 +19,7 @@
       }
     </style>
     <script src="js/main.js"></script>
+    <script src="https://kit.fontawesome.com/2bd3308741.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div>
@@ -26,16 +27,18 @@
             include("includes/header.inc.php");
         ?>
         <main>
-            <div class="profileHeader">
-                <span>
-                    <img src="images/testProfilePicture.jpg" alt="Profile Picture">
-                    Change Image
-                </span>
+            <div class="profile">
+                <img src="images/testProfilePicture.jpg" alt="Profile Picture">
                 <div class="details">
-                    <h2><?php echo $_SESSION["userusername"];?></h2>
+                    <div class="profileHeader">
+                        <h2><?php echo $_SESSION["userusername"];?></h2>
+                        <button class="editprofilebtn" onclick="window.location.href='editProfile.php'">Edit Profile <i class="fa-solid fa-gear"></i></button>
+                    </div>
                     <div class="description">
-                        <p>15 Posts</p>
-                        <p>24 Friends</p>
+                        <div class="stats">
+                            <p>15 Posts</p>
+                            <p>24 Friends</p>
+                        </div>
                         <p>User Description: I am 20 years old • Live in Sheffield •  
                             study at Hallam University • study Programming Software 
                             Engineering • I Love Anime and Basketball

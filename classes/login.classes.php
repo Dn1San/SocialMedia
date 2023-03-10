@@ -18,7 +18,7 @@
             }
 
             $passwordHashed = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $checkPassword = password_verify($password, $passworddHashed[0]["users_password"]); 
+            $checkPassword = password_verify($password, $passwordHashed[0]["users_password"]); 
 
             if($checkPassword == false){
                 $stmt = null;

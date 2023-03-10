@@ -19,6 +19,6 @@
         $signup->signupUser();
 
         // Going to next step
-        header("location: ../signup2.php?error=none");
+        header("location: ../login.php?error=none");
     }
 ?>
