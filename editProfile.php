@@ -26,9 +26,16 @@
             include("includes/header.inc.php");
         ?>
         <main>
-            <form action="" method="submit">
-
-            </form>
+            <div class="editprofile">
+                <h2>Edit Profile</h2>
+                <form class="profileform" action="includes/changeProfile.inc.php" method="POST" enctype="multipart/form-data">
+                    <label for="profilepic">Upload profile picture</label>
+                    <input type="file" name="profilepic">
+                    <label for="description">Profile Description</label>
+                    <textarea name="description"></textarea>
+                    <button type="submit" name="submit">Done</button>
+                </form>
+            </div>
         </main>
     </div>
 </body>

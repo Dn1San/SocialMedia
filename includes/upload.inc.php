@@ -1,5 +1,5 @@
 <?php
-    $file = $_FILES['profilePic'];
+    $file = $_FILES['profilepic'];
 
     $fileName = $file['name'];
     $fileTmpName = $file['tmp_name'];
@@ -16,9 +16,9 @@
         if($fileError === 0){
             if($fileSize < 1000000){
                 $fileNameNew = uniqid('', true).".".$fileActualEXT;
-                $fileDestination = 'uploads/'.$fileNameNew;
+                $fileDestination = '../uploads/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
-                header("Location: login.php?signup success");
+                header("Location: ../profile.php?signup success");
             }else{
                 echo "File size needs to be less than 1MB!";
             }

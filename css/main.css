@@ -127,7 +127,7 @@ a:hover {
 }
 
 /* Buttons */
-button input[type="submit"] {
+button, input[type="submit"] {
   background-color: black;
   color: white;
   border: none;
@@ -139,21 +139,27 @@ button input[type="submit"] {
   width:100%;
   margin:auto;
 }
-button:hover input[type="submit"]:hover {
+button:hover, input[type="submit"]:hover {
   background-color: white;
   color: black;
 }
 
 /* Form elements */
-input[type="text"] input[type="password"] textarea select {
+input[type="text"], input[type="password"], textarea, select {
   background-color: white;
   color: black;
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
 }
-input[type="checkbox"] input[type="radio"] {
+input[type="checkbox"], input[type="radio"] {
   margin-right: 5px;
+}
+textarea{
+  width: 380px;
+  height: 30vh;
+  margin-bottom: 40px;
+  resize: none;
 }
 
 /* Login Box */
@@ -220,12 +226,6 @@ input[type="checkbox"] input[type="radio"] {
   text-align: center;
   font-size: 16px;
 }
-.registerbox textarea{
-  width: 380px;
-  height: 30vh;
-  margin-bottom: 40px;
-  resize: none;
-}
 .loginlink{
   margin-top: 20px;
   margin-left: 100px;
@@ -272,6 +272,25 @@ input[type="checkbox"] input[type="radio"] {
 }
 .cancelbtn{
   margin-top: 15px;
+}
+
+/* Edit Profile*/
+.editprofile {
+  border: 1px solid #000;
+  box-shadow: 4px rgba(0,0,0,1);
+  margin-top: 10vh;
+}
+.editprofile h2{
+  text-align: center;
+  font-size: 30px;
+}
+.profileform {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.profileform input[type="file"], .profileform textarea {
+  margin-bottom: 40px;
 }
 
 /* Messages */
