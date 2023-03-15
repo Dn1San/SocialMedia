@@ -32,7 +32,7 @@
           echo "There was an error uploading the file!";
         }
       }else {
-        echo "You cannout upload files of this type!";
+        echo "You cannot upload files of this type!";
       }
     }
   
@@ -53,10 +53,30 @@
           exit();
         }
       }
+    }
+
+    public function getUserProfile() {
+      $stmt = $this->connect()->prepare('SELECT * FROM userprofile WHERE user_id = ?;');
+
+      if(!$stmt->execute(array($_SESSION['userid']))) {
+        $stmt = null;
+        header("location: ../profile.php?error=stmtfailed");
+        exit();
+      }
+
+      $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      
+      if ($users == null) {
+        $_SESSION["userprofilepicture"] = "images/defualtProfile.jpg";
+        $_SESSION["userprofiledescription"] = "";
+      }
+      else if ($users[0]["userprofile_status"] == 0){
+        $_SESSION["userprofilepicture"] = $users[0]["userprofile_picture"];
+        $_SESSION["userprofiledescription"] = $users[0]["userprofile_description"];
+      }
 
       $stmt = null;
     }
-
   }
 
 ?>

@@ -38,7 +38,7 @@
             <input type="email" placeholder="Email" name="email"/>
             <input type="number" placeholder="Phone Number" name="phone_number"/>
             <input type="date" placeholder="Date Of Birth" name="date_of_birth"/>
-            <button class="registerbtn1" type="submit" name="submit">FINISH</button>
+            <button class="registerbtn1" type="submit" name="submit">Finish</button>
         </form>
         <div class="loginlink">
             <span>Have an account? </span><a href="login.php">Click Here</a>

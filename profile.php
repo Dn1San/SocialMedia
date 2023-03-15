@@ -28,7 +28,14 @@
         ?>
         <main>
             <div class="profile">
-                <img src="images/testProfilePicture.jpg" alt="Profile Picture">
+                <?php
+                    include "classes/dbh.classes.php";
+                    include "classes/profile.classes.php";
+                    $profile = new UserProfile();
+
+                    $profile->getUserProfile();
+                ?>
+                <img src="<?php echo $_SESSION["userprofilepicture"]; ?>" alt="User Profile Image">
                 <div class="details">
                     <div class="profileHeader">
                         <h2><?php echo $_SESSION["userusername"];?></h2>
@@ -39,9 +46,7 @@
                             <p>15 Posts</p>
                             <p>24 Friends</p>
                         </div>
-                        <p>User Description: I am 20 years old • Live in Sheffield •  
-                            study at Hallam University • study Programming Software 
-                            Engineering • I Love Anime and Basketball
+                        <p>User Description: <?php echo $_SESSION["userprofiledescription"]; ?>
                         </p>
                     </div>
                 </div>
