@@ -4,12 +4,12 @@
         $picture = $_POST["profilepic"];
         $description = $_POST["description"];
 
-        // Instantiate SignupContr class
+        // Instantiate UserProfile class
         include "../classes/dbh.classes.php";
         include "../classes/profile.classes.php";
-        $profile = new UserProfile($picture, $description);
+        $profile = new UserProfile();
 
-        // Running error handlers and user signup
+        // Running error handlers and user profile
         $profile->setProfileDescription($description);
         $profile->saveProfile();
 

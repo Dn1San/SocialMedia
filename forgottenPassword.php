@@ -29,14 +29,21 @@
     <h2>We work to connect and share.</h2>
   </div>
   <div class="forgottenpasswordbox">
-    <h2>Find Your Account</h2>
+    <h2>Reset Your Password</h2>
     <span>Please enter your email address to search for your account</span>
-    <form action="" method="POST">
+    <form action="includes/resetRequest.inc.php" method="POST">
       <input type="email" placeholder="Email Address" name="email"/>
+      <br>
+      <button class="findemailbtn" name="findemailbtn" type="submit">SEARCH</button>
     </form>
-    <br>
-    <button class="findemailbtn" name="findemailbtn" onclick="window.location.href='';">SEARCH</button>
     <button class="cancelbtn" name="cancelbtn" onclick="window.location.href='login.php';">CANCEL</button>
+    <?php
+      if (isset($_GET["reset"])) {
+        if ($_GET["reset"] == "success") {
+          echo "<p class='success'> Check your email!</p>";
+        }
+      }
+    ?>
   </div>
 </body>
 </html>

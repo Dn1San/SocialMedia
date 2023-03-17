@@ -234,8 +234,8 @@ textarea{
 /* Forgotten Password Box */
 .forgottenpasswordbox{
   background-color: #bfbdbd;
-  width: 350px;
-  height: 380px;
+  width: 360px;
+  height: 410px;
   padding: 40px;
   overflow: hidden;
   margin-left: 60vw;
@@ -296,14 +296,9 @@ textarea{
 /* Messages */
 .success {
   color: black;
-  background-color: white;
-  border: 1px solid black;
   padding: 10px;
-  margin-bottom: 10px;
 }
 .error {
-  color: white;
-  background-color: black;
+  color: rgb(198, 11, 11);
   padding: 10px;
-  margin-bottom: 10px;
 }
