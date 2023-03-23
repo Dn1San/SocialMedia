@@ -91,6 +91,7 @@ main{
   height: 150px;
   border-radius: 50%;
   margin: 20px;
+  object-fit: cover;
 }
 .details {
   display: flex;
@@ -291,6 +292,39 @@ textarea{
 }
 .profileform input[type="file"], .profileform textarea {
   margin-bottom: 40px;
+}
+
+/* Create Post*/
+.createpost {
+  border: 1px solid #000;
+  box-shadow: 4px rgba(0,0,0,1);
+  margin-top: 10vh;
+}
+.createpost h2{
+  text-align: center;
+  font-size: 30px;
+}
+.postform {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.postform input[type="file"] {
+  margin-bottom: 40px;
+}
+.postform textarea{
+  width: 500px;
+}
+
+/* Friends List */
+.friendlist h2{
+  text-align: center;
+  font-size: 35px;
+  margin: 20px;
+}
+.friendlist span{
+  font-size: 15px;
+  margin-top: 40px;
 }
 
 /* Messages */

@@ -23,7 +23,16 @@
             include("includes/header.inc.php");
         ?>
         <main>
-            
+            <div class="createpost">
+                <h2>Create Post</h2>
+                <form class="postform" action="includes/changeProfile.inc.php" method="POST" enctype="multipart/form-data">
+                    <label for="userpost">Upload Post: </label>
+                    <input type="file" name="userpost">
+                    <label for="postdescription">Post Description: </label>
+                    <textarea name="postdescription"></textarea>
+                    <button type="submit" name="submit">Done</button>
+                </form>
+            </div>
         </main>
         <?php
             include("includes/footer.inc.php");

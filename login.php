@@ -37,6 +37,17 @@
                 <a href="forgottenPassword.php">Forgotten Password?</a>
             </div>
         </form>
+        <?php
+          if (isset($_GET["error"])) {
+            if ($_GET["error"] == "stmtfailed") {
+              echo "<p class='error'> This user does not exist!</p>";
+            }else if ($_GET["error"] == "wrongpassword") {
+              echo "<p class='error'> Password is incorrect!</p>";
+            }else if ($_GET["error"] == "usernotfound") {
+              echo "<p class='error'> Username is incorrect!</p>";
+            }
+          }
+        ?>
         <button class="signupbtn" name="signup" onclick="window.location.href='signup.php'">SIGN UP</button>
     </div>
 </body>
