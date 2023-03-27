@@ -1,12 +1,7 @@
 <?php
     session_start();
 
-    // TOTAL REQUESTS
-    $get_req_num = $frnd_obj->request_notification($_SESSION['user_id'], false);
-    // TOTLA FRIENDS
-    $get_frnd_num = $frnd_obj->get_all_friends($_SESSION['user_id'], false);
-    // GET MY($_SESSION['user_id']) ALL FRIENDS
-    $get_all_friends = $frnd_obj->get_all_friends($_SESSION['user_id'], true);
+    include "includes/friendsList.inc.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,15 +29,15 @@
         ?>
         <main class="friendlist">
             <h2>Friends List</h2>
-            <span>? :friends</span>
+            <span><?php echo $get_frnd_num; ?> :friends</span>
             <div class="usercontainer">
             <?php
                 if($get_frnd_num > 0){
                     foreach($get_all_friends as $row){
                         echo '<div class="user_box">
-                                <div class="user_img"><img src="profile_images/'.$row->user_image.'" alt="Profile image"></div>
-                                <div class="user_info"><span>'.$row->username.'</span>
-                                <span><a href="user_profile.php?id='.$row->id.'" class="see_profileBtn">See profile</a></div>
+                                <div class="user_img"><img src="uploads/'.$row->userprofile_picture.'" alt="Profile image"></div>
+                                <div class="user_info"><span>'.$row->users_username.'</span>
+                                <span><a href="user_profile.php?id='.$row->users_id.'" class="see_profileBtn">View profile</a></div>
                             </div>';
                     }
                 }

@@ -30,7 +30,6 @@
     </div>
     <div class="registerbox">
         <h2>SIGN UP</h2>
-        <p>Step: 1 of 2</p>
         <form action="includes/signup.inc.php" method="POST">
             <input type="text" placeholder="Full Name" name="full_name"/>
             <input type="text" placeholder="Username" name="username"/>
@@ -45,7 +44,7 @@
             if ($_GET["error"] == "stmtfailed") {
               echo "<p class='error'> Error connecting to database!</p>";
             }else if ($_GET["error"] == "emptyinput") {
-              echo "<p class='error'> missing input</p>";
+              echo "<p class='error'> missing input! please fill out all the boxs.</p>";
             }else if ($_GET["error"] == "usernameoremailtaken") {
               echo "<p class='error'> Username or email has already been taken!</p>";
             }

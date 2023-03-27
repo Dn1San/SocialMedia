@@ -22,9 +22,24 @@
         <?php
             include("includes/header.inc.php");
         ?>
-        <main>
-            
-        </main>
+        <main class="friendlist">
+            <h2>Search</h2>
+            <span><?php echo $get_frnd_num; ?> :friends</span>
+            <div class="usercontainer">
+                <?php
+                    if($all_users){
+                        foreach($all_users as $row){
+                            echo '<div class="user_box">
+                            <div class="user_img"><img scr="uploads/'.$row->userprofile_picture.'" alt="Profile image"></div>
+                            <div class="user_info"><span>'.$row->users_username'</span>
+                            <span><a href="user_profile.php?id='.$row->users_id.'" class="see_profileBtn">View profile</a></span>
+                            </div>';
+                        }
+                    }else{
+                        echo '<h4>User has not been found!</h4>'; 
+                    }
+                ?>
+            </div>
         <?php
             include("includes/footer.inc.php");
         ?>

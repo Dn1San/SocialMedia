@@ -3,9 +3,9 @@ class Friend extends Dbh{
 
     // CHECK IF ALREADY FRIENDS
     public function is_already_friends($my_id, $user_id){
-        $stmt = $this->connect()->prepare('SELECT * FROM userfriends WHERE friends_one=? AND friends_two=?');
+        $stmt = $this->connect()->prepare('SELECT * FROM userfriends WHERE (friends_one=? AND friends_two=?) OR (friends_one=? AND friends_two=?)');
 
-        if(!$stmt->execute(array($my_id, $user_id))) {
+        if(!$stmt->execute(array($my_id, $user_id, $user_id, $my_id))) {
             $stmt = null;
             header("location: ../friendsList.php?error=stmtfailed");
             exit();
@@ -61,9 +61,9 @@ class Friend extends Dbh{
 
     // CHECK IF REQUEST HAS ALREADY BEEN SENT
     public function is_request_already_sent($my_id, $user_id){
-        $stmt = $this->connect()->prepare('SELECT * FROM userfriendrequest WHERE request_sender=? AND request_receiver=?');
+        $stmt = $this->connect()->prepare('SELECT * FROM userfriendrequest WHERE (request_sender=? AND request_receiver=?) OR (request_sender=? AND request_receiver=?)');
 
-        if(!$stmt->execute(array($my_id, $user_id))) {
+        if(!$stmt->execute(array($my_id, $user_id, $user_id, $my_id))) {
             $stmt = null;
             header("location: ../friendsList.php?error=stmtfailed");
             exit();
@@ -150,23 +150,19 @@ class Friend extends Dbh{
 
     // REQUEST NOTIFICATIONS
     public function request_notification($my_id, $send_data){
-        try{
-            $sql = "SELECT sender, username, user_image FROM `friend_request` JOIN users ON friend_request.sender = users.id WHERE receiver = ?";
+        $stmt = $this->connect()->prepare('SELECT request_sender, users_username FROM userfriendrequest JOIN users ON userfriendrequest.request_sender = users.users_id WHERE request_receiver = ?');
 
-            $stmt = $this->db->prepare($sql);
-            $stmt->execute([$my_id]);
-            if($send_data){
-                return $stmt->fetchAll(PDO::FETCH_OBJ);
-            }
-            else{
-                return $stmt->rowCount();
-            }
-
+        if(!$stmt->execute(array($my_id))) {
+            $stmt = null;
+            header("location: ../friendsList.php?error=stmtfailed");
+            exit();
         }
-        catch (PDOException $e) {
-            die($e->getMessage());
+        if($send_data){
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
         }
-
+        else{
+            return $stmt->rowCount();
+        }
     }
 
 

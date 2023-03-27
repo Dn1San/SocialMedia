@@ -331,8 +331,10 @@ textarea{
 .success {
   color: black;
   padding: 10px;
+  text-align: center;
 }
 .error {
   color: rgb(198, 11, 11);
   padding: 10px;
+  text-align: center;
 }
