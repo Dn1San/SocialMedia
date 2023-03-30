@@ -4,7 +4,7 @@
     </div>
     <nav>
         <ul>
-            <li><a href="profile.php">Profile</a></li>
+            <li><a href="myProfile.php">Profile</a></li>
             <li><a href="friendsList.php">Friends</a></li>
             <li><a href="search.php">Search</a></li>
             <li><a href="create.php">Create</a></li>

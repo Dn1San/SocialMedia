@@ -122,7 +122,7 @@ class Friend extends Dbh{
 
         $stmt = $this->connect()->prepare('INSERT INTO userfriends(friends_one, friends_two) VALUES(?, ?)');
 
-        if(!$stmt->execute(array($my_id, $user_id, $user_id, $my_id))) {
+        if(!$stmt->execute(array($my_id, $user_id))) {
             $stmt = null;
             header("location: ../friendsList.php?error=stmtfailed");
             exit();

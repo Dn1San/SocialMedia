@@ -14,6 +14,6 @@
         $profile->saveProfile();
 
         // Logging into profile page
-        header("location: ../profile.php?error=none");
+        header("location: ../myProfile.php?error=none");
     }
 ?>

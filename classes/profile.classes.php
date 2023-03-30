@@ -55,19 +55,19 @@
       }
     }
 
-    public function getUserProfile() {
+    public function getUserProfile($id) {
       $stmt = $this->connect()->prepare('SELECT * FROM userprofile WHERE user_id = ?;');
 
-      if(!$stmt->execute(array($_SESSION['userid']))) {
+      if(!$stmt->execute(array($id))) {
         $stmt = null;
-        header("location: ../profile.php?error=stmtfailed");
+        header("location: ../myProfile.php?error=stmtfailed");
         exit();
       }
 
       $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
       
       if ($users == null) {
-        $_SESSION["userprofilepicture"] = "images/defualtProfile.jpg";
+        $_SESSION["userprofilepicture"] = "uploads/defualtProfile.jpg";
         $_SESSION["userprofiledescription"] = "";
       }
       else if ($users[0]["userprofile_status"] == 0){
