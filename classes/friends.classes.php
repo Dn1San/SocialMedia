@@ -88,22 +88,22 @@ class Friend extends Dbh{
             exit();
         }else{
             $stmt = null;
-            header("location: ../userProfile.php?id=".$user_id);
+            header("location: userProfile.php?id=".$user_id);
             exit();
         }
     }
 
     // CANCLE FRIEND REQUEST
     public function cancel_or_ignore_friend_request($my_id, $user_id){
-        $stmt = $this->connect()->prepare('DELETE FROM userfriendrequest WHERE (request_sender=? AND request_receiver=?) OR (request_sender=?AND request_receiver=?');
+        $stmt = $this->connect()->prepare('DELETE FROM userfriendrequest WHERE (request_sender=? AND request_receiver=?) OR (request_sender=? AND request_receiver=?)');
 
         if(!$stmt->execute(array($my_id, $user_id, $user_id, $my_id))) {
             $stmt = null;
-            header("location: ../friendsList.php?error=stmtfailed");
+            header("location: friendsList.php?error=stmtfailed");
             exit();
         }else{
             $stmt = null;
-            header("location: ../userProfile.php?id=".$user_id);
+            header("location: myProfile.php");
             exit();
         }
 
@@ -111,9 +111,9 @@ class Friend extends Dbh{
 
     // MAKE FRIENDS
     public function make_friends($my_id, $user_id){
-        $stmt = $this->connect()->prepare('DELETE FROM userfriendrequest WHERE (request_sender=? AND request_receiver=?) OR (request_sender=? AND request_reciever=?)');
+        $stmt = $this->connect()->prepare('DELETE FROM userfriendrequest WHERE (request_sender=? AND request_receiver=?) OR (request_sender=? AND request_receiver=?)');
 
-        if(!$stmt->execute(array($user_id, $my_id, $my_id, $user_id))) {
+        if(!$stmt->execute(array($my_id, $user_id, $user_id, $my_id))) {
             $stmt = null;
             header("location: ../friendsList.php?error=stmtfailed");
             exit();
@@ -128,7 +128,7 @@ class Friend extends Dbh{
             exit();
         }else{
             $stmt = null;
-            header("location: ../userProfile.php?id=".$user_id);
+            header("location: myProfile.php");
             exit();
         }    
     }
@@ -143,7 +143,7 @@ class Friend extends Dbh{
             exit();
         }else{
             $stmt = null;
-            header("location: ../userProfile.php?id=".$user_id);
+            header("location: userProfile.php?id=".$user_id);
             exit();
         }
     }
@@ -163,6 +163,8 @@ class Friend extends Dbh{
         else{
             return $stmt->rowCount();
         }
+
+        $stmt = null;
     }
 
 
@@ -182,39 +184,23 @@ class Friend extends Dbh{
 
             foreach($all_users as $row){
                 if($row->friends_one == $my_id){
-                    $get_user_stmt = $this->connect()->prepare('SELECT users_id, users_username, FROM users WHERE users_id = ?;');
+                    $get_user_stmt = $this->connect()->prepare('SELECT users_id, users_username FROM users WHERE users_id = ?;');
 
-                    if(!$get_user_stmt->execute(array([$row->friends_two]))) {
+                    if(!$get_user_stmt->execute(array($row->friends_two))) {
                         $get_user_stmt = null;
                         header("location: ../friendsList.php?error=stmtfailed");
                         exit();
                     }
-
-                    $get_user_img_stmt = $this->connect()->prepare('SELECT userprofile_picture, userprofile_description, FROM userprofile WHERE user_id = ?;');
-
-                    if(!$get_user_img_stmt->execute(array([$row->friends_two]))) {
-                        $get_user_img_stmt = null;
-                        header("location: ../friendsList.php?error=stmtfailed");
-                        exit();
-                    }
-                    array_push($return_data, $get_user_stmt->fetch(PDO::FETCH_OBJ), $get_user_img_stmt->fetch(PDO::FETCH_OBJ));
+                    array_push($return_data, $get_user_stmt->fetch(PDO::FETCH_OBJ));
                 }else{
-                    $get_user_stmt = $this->connect()->prepare('SELECT users_id, users_username, FROM users WHERE users_id = ?;');
+                    $get_user_stmt = $this->connect()->prepare('SELECT users_id, users_username FROM users WHERE users_id = ?;');
 
-                    if(!$get_user_stmt->execute(array([$row->friends_one]))) {
+                    if(!$get_user_stmt->execute(array($row->friends_one))) {
                         $get_user_stmt = null;
                         header("location: ../friendsList.php?error=stmtfailed");
                         exit();
                     }
-
-                    $get_user_img_stmt = $this->connect()->prepare('SELECT userprofile_picture, userprofile_description, FROM userprofile WHERE user_id = ?;');
-
-                    if(!$get_user_img_stmt->execute(array([$row->friends_one]))) {
-                        $get_user_img_stmt = null;
-                        header("location: ../friendsList.php?error=stmtfailed");
-                        exit();
-                    }
-                    array_push($return_data, $get_user_stmt->fetch(PDO::FETCH_OBJ), $get_user_img_stmt->fetch(PDO::FETCH_OBJ));
+                    array_push($return_data, $get_user_stmt->fetch(PDO::FETCH_OBJ));
                 }
             }
 

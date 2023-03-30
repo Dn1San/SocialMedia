@@ -116,6 +116,16 @@ main{
   padding: 10px;
   border-radius: 15px;
 }
+#add_friend{
+  color: rgb(149, 243, 9);
+  width: auto;
+  display: flex;
+}
+#remove_friend{
+  color: rgb(255, 43, 43);
+  width: auto;
+  display: flex;
+}
 
 /* Links */
 a {
