@@ -1,0 +1,35 @@
+/* Login Box */
+.loginbox{
+    background-color: #bfbdbd;
+    width: 350px;
+    height: 380px;
+    padding: 40px;
+    overflow: hidden;
+    margin-left: 60vw;
+    margin-top: 20vh;
+    box-shadow: 4px rgba(0,0,0,1);
+    border-radius: 5%;
+}
+.loginbox h2{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10px;
+}
+.loginbox input{
+    width: 90%;
+    display: block;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+#forgotPasswordLink{
+    margin: 15px 107px;
+}
+.signupbtn{
+    margin-top: 85px;
+}

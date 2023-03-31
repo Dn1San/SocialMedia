@@ -1,0 +1,32 @@
+/* Register Box */
+.registerbox{
+    background-color: #bfbdbd;
+    width: 400px;
+    padding: 40px;
+    overflow: hidden;
+    margin-left: 55vw;
+    margin-top: 5vh;
+    box-shadow: 4px rgba(0,0,0,1);
+    border-radius: 5%;
+}
+.registerbox h2{
+    text-align: center;
+    font-size: 35px;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.registerbox input{
+    width: 90%;
+    display: block;
+    padding: 15px;
+    margin-bottom: 20px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+.loginlink{
+    margin-top: 20px;
+    margin-left: 100px;
+}

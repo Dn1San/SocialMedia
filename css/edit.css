@@ -1,0 +1,18 @@
+/* Edit Profile*/
+.editprofile {
+    border: 1px solid #000;
+    box-shadow: 4px rgba(0,0,0,1);
+    margin-top: 10vh;
+}
+.editprofile h2{
+    text-align: center;
+    font-size: 30px;
+}
+.profileform {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.profileform input[type="file"], .profileform textarea {
+    margin-bottom: 40px;
+}
