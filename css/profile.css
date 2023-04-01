@@ -40,6 +40,12 @@
     padding: 10px;
     border-radius: 15px;
 }
+.profileposts img{
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    object-fit: cover;
+}
 #add_friend{
     color: rgb(149, 243, 9);
     width: auto;

@@ -74,7 +74,8 @@
 
         public function getUserPosts($id, $send_data) {
             $return_data = [];
-            $stmt = $this->connect()->prepare('SELECT * FROM userprofile WHERE user_id = ?;');
+
+            $stmt = $this->connect()->prepare('SELECT * FROM userposts WHERE user_id = ?;');
 
             if(!$stmt->execute(array($id))) {
                 $stmt = null;

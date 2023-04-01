@@ -42,19 +42,21 @@
                             <p><?php echo $get_post_num; ?> Posts</p>
                             <p><?php echo $get_frnd_num; ?> Friends</p>
                         </div>
-                        <p>User Description: <?php echo $_SESSION["userprofiledescription"]; ?>
-                        </p>
+                        <p>User Description: <?php echo $_SESSION["userprofiledescription"]; ?></p>
                     </div>
                 </div>
             </div>
-            <div class="profilePosts">
-                <ul>
-                    <li><img src="" alt="User Post"></li>
-                    <li><img src="" alt="User Post"></li>
-                    <li><img src="" alt="User Post"></li>
-                    <li><img src="" alt="User Post"></li>
-                    <li><img src="" alt="User Post"></li>
-                </ul>
+            <div class="profileposts">
+                <?php
+                    if ($get_post_num > 0) {
+                        foreach($get_all_posts as $row){
+                            echo '<ul>
+                                <li><img src="'.$row->post_picture.'" alt="User Post"></li>
+                                <p>'.$row->post_description.'</p>
+                            </ul>';
+                        }
+                    }
+                ?>
             </div>
         </main>
         <?php
