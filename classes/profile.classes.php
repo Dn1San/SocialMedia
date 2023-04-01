@@ -45,6 +45,24 @@
       if (isset($_SESSION['userid'])){
         $this->setProfilePicture();
 
+        $stmt = $this->connect()->prepare('SELECT * FROM userprofile WHERE user_id=?');
+
+        if(!$stmt->execute(array($_SESSION['userid']))) {
+          $stmt = null;
+          header("location: ../editProfile.php?error=stmtfailed");
+          exit();
+        }
+
+        if($stmt->rowCount() > 0){
+          $delete_stmt = $this->connect()->prepare('DELETE FROM userprofile WHERE user_id=?');
+
+          if(!$delete_stmt->execute(array($_SESSION['userid']))) {
+            $delete_stmt = null;
+            header("location: ../editProfile.php?error=stmtfailed");
+            exit();
+          }
+        }
+
         $stmt = $this->connect()->prepare('INSERT INTO userprofile(user_id, userprofile_picture, userprofile_description) VALUES (?, ?,?)');
 
         if(!$stmt->execute(array($_SESSION['userid'], $this->profilePicture, $this->profileDescription))) {
@@ -52,6 +70,8 @@
           header("location: ../editProfile.php?error=stmtfailed");
           exit();
         }
+
+        $stmt = null;
       }
     }
 

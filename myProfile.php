@@ -1,5 +1,7 @@
 <?php
     session_start();
+
+    include "includes/myProfile.inc.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,13 +31,6 @@
         ?>
         <main>
             <div class="profile">
-                <?php
-                    include "classes/dbh.classes.php";
-                    include "classes/profile.classes.php";
-                    $profile = new UserProfile();
-
-                    $profile->getUserProfile($_SESSION['userid']);
-                ?>
                 <img src="<?php echo $_SESSION["userprofilepicture"]; ?>" alt="User Profile Image">
                 <div class="details">
                     <div class="profileHeader">
@@ -44,8 +39,8 @@
                     </div>
                     <div class="description">
                         <div class="stats">
-                            <p>15 Posts</p>
-                            <p>24 Friends</p>
+                            <p><?php echo $get_post_num; ?> Posts</p>
+                            <p><?php echo $get_frnd_num; ?> Friends</p>
                         </div>
                         <p>User Description: <?php echo $_SESSION["userprofiledescription"]; ?>
                         </p>

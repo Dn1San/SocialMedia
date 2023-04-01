@@ -26,7 +26,7 @@
         <main>
             <div class="createpost">
                 <h2>Create Post</h2>
-                <form class="postform" action="includes/changeProfile.inc.php" method="POST" enctype="multipart/form-data">
+                <form class="postform" action="includes/createPost.inc.php" method="POST" enctype="multipart/form-data">
                     <label for="userpost">Upload Post: </label>
                     <input type="file" name="userpost">
                     <label for="postdescription">Post Description: </label>
