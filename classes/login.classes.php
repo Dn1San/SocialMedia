@@ -72,5 +72,22 @@
             return $resultCheck;
         }
 
+        public function checkIfUserIsAdmin(){
+            $stmt = $this->connect()->prepare('SELECT * FROM users WHERE users_id=?');
+
+            if(!$stmt->execute(array($_SESSION['userid']))) {
+                $stmt = null;
+                header("location: ../friendsList.php?error=stmtfailed");
+                exit();
+            }
+            
+            $user = $stmt->fetch(PDO::FETCH_OBJ);
+            if($user->users_role === 'user'){
+                return false;
+            }else if($user->users_role === 'admin'){
+                return true;
+            }
+        }
+
     }
 ?>

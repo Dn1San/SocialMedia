@@ -1,3 +1,8 @@
+<?php
+    session_start();
+
+    include "classes/dbh.classes.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

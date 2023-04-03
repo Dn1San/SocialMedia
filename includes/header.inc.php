@@ -1,3 +1,9 @@
+<?php
+    include "classes/login.classes.php";
+
+    $login = new Login();
+    $userIsAnAdmin = $login->checkIfUserIsAdmin();
+?>
 <header id="vertical-header">
     <div id="logo">
         <h1>NAME<br>MEDIA</h1>
@@ -9,6 +15,11 @@
             <li><a href="search.php">Search</a></li>
             <li><a href="create.php">Create</a></li>
             <li><a href="notifications.php">Notifications</a></li>
+            <?php
+                if($userIsAnAdmin){
+                    echo '<li><a href="admin.php">Admin</a></li>';
+                }
+            ?>
         </ul>
         <div id="sign-out">
             <a href="includes/logout.inc.php">Sign Out</a>

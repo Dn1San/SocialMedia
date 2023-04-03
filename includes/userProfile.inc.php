@@ -17,7 +17,7 @@
     $check_req_sent = $friend->is_request_already_sent($_SESSION['userid'], $userData->users_id);
     $get_frnd_num = $friend->get_all_friends($_SESSION['userid'], false);
     $get_post_num = $post->getUserPosts($_SESSION['userid'], false);
-    $get_all_posts = $post->getUserPosts($_SESSION['userid'], true);
+    $get_all_posts = $post->getUserPosts($userData->users_id, true);
     
     if(array_key_exists('addfriend', $_POST)) {
         if($check_req_sent === true){

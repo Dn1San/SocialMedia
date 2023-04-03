@@ -74,10 +74,11 @@
 
         public function getUserPosts($id, $send_data) {
             $return_data = [];
+            $postStatus = 'accepted';
 
-            $stmt = $this->connect()->prepare('SELECT * FROM userposts WHERE user_id = ?;');
+            $stmt = $this->connect()->prepare('SELECT * FROM userposts WHERE user_id=? AND post_status=?;');
 
-            if(!$stmt->execute(array($id))) {
+            if(!$stmt->execute(array($id, $postStatus))) {
                 $stmt = null;
                 header("location: ../myProfile.php?error=stmtfailed");
                 exit();

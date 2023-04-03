@@ -3,7 +3,10 @@
     //Instantiate UserProfile class
     include "classes/dbh.classes.php";
     include "classes/friends.classes.php";
+    include "classes/profile.classes.php";
+
     $friend = new Friend();
+    $profile = new UserProfile();
 
     // Retrieve total requests
     $get_req_num = $friend->request_notification($_SESSION['userid'], false);

@@ -64,6 +64,8 @@
                                 <p>'.$row->post_description.'</p>
                             </ul>';
                         }
+                    }else{
+                        echo 'No user posts!';
                     }
                 ?>
             </div>

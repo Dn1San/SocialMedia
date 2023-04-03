@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Name Media || *username* Profile</title>
+    <title>Name Media || <?php echo $_SESSION["userusername"];?> Profile</title>
     <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
     <link rel="stylesheet" type="text/css" href="CSS/profile.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter"/>
@@ -55,6 +55,8 @@
                                 <p>'.$row->post_description.'</p>
                             </ul>';
                         }
+                    }else{
+                        echo 'No user posts!';
                     }
                 ?>
             </div>
