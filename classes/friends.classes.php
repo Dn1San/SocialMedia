@@ -150,7 +150,7 @@
 
         // REQUEST NOTIFICATIONS
         public function request_notification($my_id, $send_data){
-            $stmt = $this->connect()->prepare('SELECT request_sender, users_username FROM userfriendrequest JOIN users ON userfriendrequest.request_sender = users.users_id WHERE request_receiver = ?');
+            $stmt = $this->connect()->prepare('SELECT request_sender, users_username, users_id FROM userfriendrequest JOIN users ON userfriendrequest.request_sender = users.users_id WHERE request_receiver = ?');
 
             if(!$stmt->execute(array($my_id))) {
                 $stmt = null;
@@ -207,6 +207,23 @@
             }
             else{
                 return $stmt->rowCount();
+            }
+        }
+
+        public function getFriendProfileImage($id){
+            $stmt = $this->connect()->prepare('SELECT userprofile_picture FROM userprofile WHERE user_id = ?;');
+
+            if(!$stmt->execute(array($id))) {
+                $stmt = null;
+                header("location: ../friendsList.php?error=stmtfailed");
+                exit();
+            }
+            $image = $stmt->fetch(PDO::FETCH_OBJ);
+
+            if($image == null){
+                return "uploads/defualtProfile.jpg";
+            }else{
+                return $image->userprofile_picture;
             }
         }
     }

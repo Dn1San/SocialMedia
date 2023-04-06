@@ -37,11 +37,11 @@
                         <h2><?php echo $userData->users_username;?></h2>
                         <?php
                             if($is_already_friends){
-                                echo '<form method="post"><button name="removefriend">Remove Friend</button></form>';
+                                echo '<form method="post"><button name="removefriend" class="profilebtns">Remove Friend</button></form>';
                             }else if($check_req_sender){
-                                echo '<form method="post"><button name="cancelreq">Cancel Request</button></form>';
+                                echo '<form method="post"><button name="cancelreq" class="profilebtns">Cancel Request</button></form>';
                             }else{
-                                echo '<form method="post"><button name="addfriend">Add Friend</button></form>';
+                                echo '<form method="post"><button name="addfriend" class="profilebtns">Add Friend</button></form>';
                             }
                         ?>
                     </div>
@@ -59,10 +59,7 @@
                 <?php
                     if ($get_post_num > 0) {
                         foreach($get_all_posts as $row){
-                            echo '<ul>
-                                <li><img src="'.$row->post_picture.'" alt="User Post"></li>
-                                <p>'.$row->post_description.'</p>
-                            </ul>';
+                            echo '<div class="post"><img src="'.$row->post_picture.'" alt="User Post">'.$row->post_description.'</div';
                         }
                     }else{
                         echo 'No user posts!';

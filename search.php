@@ -9,17 +9,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Name Media || Search</title>
     <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
     <link rel="stylesheet" type="text/css" href="CSS/profile.css"/>
+    <link rel="stylesheet" type="text/css" href="CSS/friends.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter"/>
     <style>
-      #logo h1{
-        font-family: Inter;
-        font-weight: 700;
-        font-size: 60px;
-        font-style: italic;
-      }
+        #logo h1{
+            font-family: Inter;
+            font-weight: 700;
+            font-size: 60px;
+            font-style: italic;
+        }
     </style>
     <script src="js/main.js"></script>
 </head>
@@ -34,10 +35,11 @@
                 <?php
                     if($all_users){
                         foreach($all_users as $row){
+                            $getFriendProfileImage = $friend->getFriendProfileImage($row->users_id);
                             echo '<div class="profile">
-                            <div><img src="uploads/defualtProfile.jpg" alt="Profile image"></div>
+                            <div class="user"><img src="'.$getFriendProfileImage.'" alt="Profile image"></div>
                             <div><span>'.$row->users_username.'</span>
-                            <span><a href="userProfile.php?id='.$row->users_id.'">View profile</a></span>
+                            <span class="viewprofile"><a href="userProfile.php?id='.$row->users_id.'">View profile</a></span></div>
                             </div>';
                         }
                     }else{
@@ -45,6 +47,7 @@
                     }
                 ?>
             </div>
+        </main>
         <?php
             include("includes/footer.inc.php");
         ?>

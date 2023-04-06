@@ -17,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Name Media || Admin Control</title>
     <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
+    <link rel="stylesheet" type="text/css" href="CSS/admin.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter"/>
     <style>
       #logo h1{
@@ -41,17 +42,17 @@
                 <button class="registerbtn2" type="submit" name="submit">Set New Admin</button>
             </form>
             <h4>New Posts</h3>
-            <span>Review new posts.</span>
+            <p>Review new posts.</p>
             <?php
                 if($get_post_num > 0){
                     foreach ($reviewPosts as $row) {
-                        echo '<div class="profile">
-                        <span>'.$row->user_id.'</span>
+                        echo '<div class="post">
+                        <span class="userid">'.$row->user_id.'</span>
                         <div><img src="'.$row->post_picture.'" alt="Profile image"></div>
                         <span>'.$row->post_description.'</span>
                         <form method="post">
-                            <button name="acceptpost" id="add_friend">Accept</button>
-                            <button name="rejectpost" id="remove_friend">Reject</button>
+                            <button name="acceptpost" id="add_post">Accept</button>
+                            <button name="rejectpost" id="reject_post">Reject</button>
                         </form>
                         </div>';
                         if(array_key_exists('acceptpost', $_POST)) {

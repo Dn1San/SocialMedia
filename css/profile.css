@@ -9,6 +9,10 @@
 }
 .stats {
     display: flex;
+    justify-content: center;
+}
+.stats p {
+    margin-right: 7vw;
 }
 .profile img {
     width: 150px;
@@ -22,7 +26,7 @@
     flex-direction: column;
     margin: 50px;
 }
-.details h2 {
+.profileHeader h2 {
     font-size: 24px;
     margin-bottom: 10px;
 }
@@ -33,26 +37,52 @@
 .description p {
     font-size: 18px;
     margin-bottom: 5px;
+    justify-content: space-around;
 }
-.editprofilebtn {
-    width:205px;
+.profilebtns {
+    width: auto;
     font-size: 15px;
     padding: 10px;
     border-radius: 15px;
+    margin-left: 20vw;
 }
-.profileposts img{
+.post img{
     width: 150px;
     height: 150px;
-    margin: 20px;
+    margin: 10px;
+    vertical-align:middle;
+    border: 2px double #444;
+}
+.post {
+    border: 2px double #444;
+}
+.user img{
+    width: 90px;
+    height: 90px;
+    margin: 30px 50px 10px 40px;
     object-fit: cover;
+}
+.viewprofile{
+    margin-left: 10px;
+}
+.profile form{
+    display: flex;
+    margin-left: auto;
 }
 #add_friend{
     color: rgb(149, 243, 9);
     width: auto;
     display: flex;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 15px;
 }
 #remove_friend{
     color: rgb(255, 43, 43);
     width: auto;
     display: flex;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    margin-left: 2vw;
 }

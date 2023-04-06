@@ -35,7 +35,7 @@
                 <div class="details">
                     <div class="profileHeader">
                         <h2><?php echo $_SESSION["userusername"];?></h2>
-                        <button class="editprofilebtn" onclick="window.location.href='editProfile.php'">Edit Profile <i class="fa-solid fa-gear"></i></button>
+                        <button class="profilebtns" onclick="window.location.href='editProfile.php'">Edit Profile <i class="fa-solid fa-gear"></i></button>
                     </div>
                     <div class="description">
                         <div class="stats">
@@ -50,10 +50,8 @@
                 <?php
                     if ($get_post_num > 0) {
                         foreach($get_all_posts as $row){
-                            echo '<ul>
-                                <li><img src="'.$row->post_picture.'" alt="User Post"></li>
-                                <p>'.$row->post_description.'</p>
-                            </ul>';
+                            echo '<div class="post"><img src="'.$row->post_picture.'" alt="User Post">
+                                '.$row->post_description.'</div>';
                         }
                     }else{
                         echo 'No user posts!';

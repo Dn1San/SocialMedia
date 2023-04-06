@@ -1,0 +1,10 @@
+/* Search */
+.search h2{
+    text-align: center;
+    font-size: 35px;
+    margin: 20px;
+}
+.usercontainer{
+    display: flex;
+    flex-wrap: wrap;
+}

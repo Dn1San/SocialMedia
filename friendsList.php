@@ -31,44 +31,48 @@
         ?>
         <main class="friendlist">
             <h2>Friends List</h2>
-            <span><?php echo $get_frnd_num; ?> :friends</span>
-            <span><?php echo $get_req_num; ?> :requests</span>
-            <div class="usercontainer">
-            <?php
-                if($get_req_num > 0){
-                    foreach($get_req_noti as $row){
-                        echo '<div class="profile">
-                                <div><img src="uploads/defualtProfile.jpg" alt="Profile image"></div>
-                                <div><span>'.$row->users_username.'</span>
-                                <span><a href="userProfile.php?id='.$row->request_sender.'">View profile</a></div>
-                                <form method="post">
-                                    <button name="addfriend" id="add_friend">Accept</button>
-                                    <button name="ignorefriend" id="remove_friend">Reject</button>
-                                </form>
-                            </div>';
-                        if(array_key_exists('addfriend', $_POST)) {
-                            $friend->make_friends($_SESSION['userid'], $row->request_sender);
-                        }
-                        if(array_key_exists('ignorefriend', $_POST)) {
-                            $friend->cancel_or_ignore_friend_request($_SESSION['userid'], $row->request_sender);
+            <div>
+                <span><?php echo $get_req_num; ?> :requests</span>
+                <?php
+                    if($get_req_num > 0){
+                        foreach($get_req_noti as $row){
+                            $getFriendProfileImage = $friend->getFriendProfileImage($row->users_id);
+                            echo '<div class="profile">
+                                    <div class="user"><img src="'.$getFriendProfileImage.'" alt="Profile image"></div>
+                                    <div><span>'.$row->users_username.'</span>
+                                    <span class="viewprofile"><a href="userProfile.php?id='.$row->request_sender.'">View profile</a></span></div>
+                                    <form method="post">
+                                        <button name="addfriend" id="add_friend">Accept</button>
+                                        <button name="ignorefriend" id="remove_friend">Reject</button>
+                                    </form>
+                                </div>';
+                            if(array_key_exists('addfriend', $_POST)) {
+                                $friend->make_friends($_SESSION['userid'], $row->request_sender);
+                            }
+                            if(array_key_exists('ignorefriend', $_POST)) {
+                                $friend->cancel_or_ignore_friend_request($_SESSION['userid'], $row->request_sender);
+                            }
                         }
                     }
-                }
-                else{
-                    echo '<h4>You have no friend requests!</h4>';
-                }
-                if($get_frnd_num > 0){
-                    foreach($get_all_friends as $row){
-                        echo '<div class="profile">
-                                <div><img src="uploads/defualtProfile.jpg" alt="Profile image"></div>
-                                <div><span>'.$row->users_username.'</span>
-                                <span><a href="userProfile.php?id='.$row->users_id.'">View profile</a></div>
-                            </div>';
+                    else{
+                        echo '<h4>You have no friend requests!</h4>';
                     }
-                }
-                else{
-                    echo '<h4>You have no friends!</h4>';
-                }
+                ?>
+                <span><?php echo $get_frnd_num; ?> :friends</span>
+                <?php
+                    if($get_frnd_num > 0){
+                        foreach($get_all_friends as $row){
+                            $getFriendProfileImage = $friend->getFriendProfileImage($row->users_id);
+                            echo '<div class="profile">
+                                    <div class="user"><img src="'.$getFriendProfileImage.'" alt="Profile image"></div>
+                                    <div><span>'.$row->users_username.'</span>
+                                    <span class="viewprofile"><a href="userProfile.php?id='.$row->users_id.'">View profile</a></div>
+                                </div>';
+                        }
+                    }
+                    else{
+                        echo '<h4>You have no friends!</h4>';
+                    }
                 ?>
             </div>
         </main>
