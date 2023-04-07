@@ -103,7 +103,7 @@
                 exit();
             }else{
                 $stmt = null;
-                header("location: myProfile.php");
+                header("location: userProfile.php?id=".$user_id);
                 exit();
             }
 

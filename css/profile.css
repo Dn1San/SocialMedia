@@ -50,6 +50,7 @@
     width: 150px;
     height: 150px;
     margin: 10px;
+    object-fit: cover;
     vertical-align:middle;
     border: 2px double #444;
 }
