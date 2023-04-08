@@ -76,17 +76,17 @@
             $return_data = [];
             $postStatus = 'accepted';
 
-            $stmt = $this->connect()->prepare('SELECT * FROM userposts WHERE user_id=? AND post_status=?;');
+            $stmt = $this->connect()->prepare('SELECT * FROM userposts WHERE user_id=? AND post_status=?');
 
             if(!$stmt->execute(array($id, $postStatus))) {
                 $stmt = null;
                 header("location: ../myProfile.php?error=stmtfailed");
                 exit();
             }
-            array_push($return_data, $stmt->fetch(PDO::FETCH_OBJ));
+            $all_posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
             if($send_data){
-                return $return_data;
+                return $all_posts;
             }else{
                 return $stmt->rowCount();
             }

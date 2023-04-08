@@ -48,9 +48,12 @@
                                 </div>';
                             if(array_key_exists('addfriend', $_POST)) {
                                 $friend->make_friends($_SESSION['userid'], $row->request_sender);
+                                $notification->sendNotification($_SESSION['userid'], "You and ".$row->users_username." are now friends.");
+                                $notification->sendNotification($row->users_id, "You and ".$_SESSION['userusername']." are now friends.");
                             }
                             if(array_key_exists('ignorefriend', $_POST)) {
                                 $friend->cancel_or_ignore_friend_request($_SESSION['userid'], $row->request_sender);
+                                $notification->sendNotification($_SESSION['userid'], "You have ignored ".$row->users_username."'s friend request.");
                             }
                         }
                     }

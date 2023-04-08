@@ -52,6 +52,7 @@
           header("location: ../editProfile.php?error=stmtfailed");
           exit();
         }
+        $userProfile = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         if($stmt->rowCount() > 0){
           $delete_stmt = $this->connect()->prepare('DELETE FROM userprofile WHERE user_id=?');
@@ -61,6 +62,8 @@
             header("location: ../editProfile.php?error=stmtfailed");
             exit();
           }
+
+          unlink($userProfile->post_picture);
         }
 
         $stmt = $this->connect()->prepare('INSERT INTO userprofile(user_id, userprofile_picture, userprofile_description) VALUES (?, ?,?)');

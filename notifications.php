@@ -2,6 +2,12 @@
     session_start();
 
     include "classes/dbh.classes.php";
+    include "classes/notification.classes.php";
+
+    $notification = new Notifications;
+
+    $get_noti_num = $notification->retriveNotifications($_SESSION['userid'], false);
+    $get_all_notis = $notification->retriveNotifications($_SESSION['userid'], true);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,16 +29,27 @@
     <script src="js/main.js"></script>
 </head>
 <body>
-    <div>
-        <?php
-            include("includes/header.inc.php");
-        ?>
-        <main>
-            
-        </main>
-        <?php
-            include("includes/footer.inc.php");
-        ?>
-    </div>
+    <?php
+        include("includes/header.inc.php");
+    ?>
+    <main>
+        <h2>Notifications</h2>
+        <div class="notifications">
+            <ul>
+                <?php
+                    if ($get_noti_num > 0) {
+                        foreach($get_all_notis as $row){
+                            echo '<li>'.$row->noti_message.'</li>';
+                        }
+                    }else{
+                        echo 'No notifications!';
+                    }
+                ?>
+            </ul>
+        </div>
+    </main>
+    <?php
+        include("includes/footer.inc.php");
+    ?>
 </body>
 </html>

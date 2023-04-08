@@ -4,11 +4,13 @@
     include "classes/search.classes.php";
     include "classes/friends.classes.php";
     include "classes/post.classes.php";
+    include "classes/notification.classes.php";
 
     $profile = new UserProfile();
     $search = new Search();
     $friend = new Friend();
     $post = new Post();
+    $notification = new Notifications();
 
     $userData = $search->find_user_by_id($_GET['id']);
     $profile->getUserProfile($_GET['id']);
@@ -24,12 +26,16 @@
             header("location: userProfile.php?id=".$userData->users_id."&error=reqsent");
         }else{
             $friend->make_pending_friends($_SESSION['userid'], $_GET['id']);
+            $notification->sendNotification($_SESSION['userid'], "Friend request has been sent to ".$userData->users_username.".");
+            $notification->sendNotification($_GET['id'], "You recieved a friend request from ".$_SESSION['userusername'].".");
         }
     }
     if(array_key_exists('removefriend', $_POST)) {
         $friend->delete_friends($_SESSION['userid'], $_GET['id']);
+        $notification->sendNotification($_SESSION['userid'], "Friend ".$userData->users_username." has been removed from your friends list.");
     }
     if(array_key_exists('cancelreq', $_POST)) {
         $friend->cancel_or_ignore_friend_request($_SESSION['userid'], $_GET['id']);
+        $notification->sendNotification($_SESSION['userid'], "Friend ".$userData->users_username." request has been canceled.");
     }
 ?>

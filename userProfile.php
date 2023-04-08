@@ -59,7 +59,8 @@
                 <?php
                     if ($get_post_num > 0) {
                         foreach($get_all_posts as $row){
-                            echo '<div class="post"><img src="'.$row->post_picture.'" alt="User Post">'.$row->post_description.'</div';
+                            echo '<div class="post"><img src="'.$row->post_picture.'" alt="User Post">
+                            '.$row->post_description.'</div>';
                         }
                     }else{
                         echo 'No user posts!';

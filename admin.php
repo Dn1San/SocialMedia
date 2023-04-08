@@ -3,8 +3,9 @@
 
     include "classes/dbh.classes.php";
     include "classes/admin.classes.php";
+    include "classes/notification.classes.php";
 
-    $admin = new Admin();
+    $notification = new Notifications();
 
     $get_post_num = $admin->reviewPosts(false);
     $reviewPosts = $admin->reviewPosts(true);
@@ -57,9 +58,11 @@
                         </div>';
                         if(array_key_exists('acceptpost', $_POST)) {
                             $admin->acceptPost($row->post_id);
+                            $notification->sendNotification($row->users_id, "Your post has been accepted and can now be viewed on your profile.");
                         }
                         if(array_key_exists('rejectpost', $_POST)) {
                             $admin->rejectPost($row->post_id);
+                            $notification->sendNotification($row->users_id, "Your post has been rejected due to inappropiate content.");
                         }
                     }
                 }else{

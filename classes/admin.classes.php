@@ -15,7 +15,6 @@
         }
 
         public function reviewPosts($sendData){
-            $return_data = [];
             $postReview = 'under review';
             $stmt = $this->connect()->prepare('SELECT * FROM userposts WHERE post_status=?;');
 
@@ -25,10 +24,10 @@
                 exit();
             }
 
-            array_push($return_data, $stmt->fetch(PDO::FETCH_OBJ));
+            $all_posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
             if($sendData){
-                return $return_data;
+                return $all_posts;
             }else{
                 return $stmt->rowCount();
             }

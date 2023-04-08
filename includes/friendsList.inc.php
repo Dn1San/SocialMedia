@@ -4,7 +4,9 @@
     include "classes/dbh.classes.php";
     include "classes/friends.classes.php";
     include "classes/profile.classes.php";
+    include "classes/notification.classes.php";
 
+    $notification = new Notifications();
     $friend = new Friend();
     $profile = new UserProfile();
 
