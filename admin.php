@@ -6,6 +6,7 @@
     include "classes/notification.classes.php";
 
     $notification = new Notifications();
+    $admin = new Admin();
 
     $get_post_num = $admin->reviewPosts(false);
     $reviewPosts = $admin->reviewPosts(true);
@@ -57,12 +58,12 @@
                         </form>
                         </div>';
                         if(array_key_exists('acceptpost', $_POST)) {
+                            $notification->sendNotification($row->user_id, "Your post has been accepted and can now be viewed on your profile.");
                             $admin->acceptPost($row->post_id);
-                            $notification->sendNotification($row->users_id, "Your post has been accepted and can now be viewed on your profile.");
                         }
                         if(array_key_exists('rejectpost', $_POST)) {
+                            $notification->sendNotification($row->user_id, "Your post has been rejected due to inappropiate content.");
                             $admin->rejectPost($row->post_id);
-                            $notification->sendNotification($row->users_id, "Your post has been rejected due to inappropiate content.");
                         }
                     }
                 }else{

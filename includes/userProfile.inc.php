@@ -25,17 +25,17 @@
         if($check_req_sent === true){
             header("location: userProfile.php?id=".$userData->users_id."&error=reqsent");
         }else{
-            $friend->make_pending_friends($_SESSION['userid'], $_GET['id']);
             $notification->sendNotification($_SESSION['userid'], "Friend request has been sent to ".$userData->users_username.".");
             $notification->sendNotification($_GET['id'], "You recieved a friend request from ".$_SESSION['userusername'].".");
+            $friend->make_pending_friends($_SESSION['userid'], $_GET['id']);
         }
     }
     if(array_key_exists('removefriend', $_POST)) {
-        $friend->delete_friends($_SESSION['userid'], $_GET['id']);
         $notification->sendNotification($_SESSION['userid'], "Friend ".$userData->users_username." has been removed from your friends list.");
+        $friend->delete_friends($_SESSION['userid'], $_GET['id']);
     }
     if(array_key_exists('cancelreq', $_POST)) {
-        $friend->cancel_or_ignore_friend_request($_SESSION['userid'], $_GET['id']);
         $notification->sendNotification($_SESSION['userid'], "Friend ".$userData->users_username." request has been canceled.");
+        $friend->cancel_or_ignore_friend_request($_SESSION['userid'], $_GET['id']);
     }
 ?>

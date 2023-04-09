@@ -17,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
+    <link rel="stylesheet" type="text/css" href="CSS/notification.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter"/>
     <style>
       #logo h1{

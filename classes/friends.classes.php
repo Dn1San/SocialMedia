@@ -124,11 +124,11 @@
 
             if(!$stmt->execute(array($my_id, $user_id))) {
                 $stmt = null;
-                header("location: ../friendsList.php?error=stmtfailed");
+                header("location: friendsList.php?error=stmtfailed");
                 exit();
             }else{
                 $stmt = null;
-                header("location: myProfile.php");
+                header("location: friendsList.php");
                 exit();
             }    
         }
@@ -139,7 +139,7 @@
 
             if(!$stmt->execute(array($my_id, $user_id, $user_id, $my_id))) {
                 $stmt = null;
-                header("location: ../friendsList.php?error=stmtfailed");
+                header("location: userProfile.php?id=".$user_id."error=stmtfailed");
                 exit();
             }else{
                 $stmt = null;
