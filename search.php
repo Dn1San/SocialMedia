@@ -33,8 +33,8 @@
             <h2>Search</h2>
             <div class="usercontainer">
                 <?php
-                    if($all_users){
-                        foreach($all_users as $row){
+                    if($allUsers){
+                        foreach($allUsers as $row){
                             $getFriendProfileImage = $friend->getFriendProfileImage($row->users_id);
                             echo '<div class="profile">
                             <div class="user"><img src="'.$getFriendProfileImage.'" alt="Profile image"></div>

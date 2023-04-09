@@ -36,9 +36,9 @@
                     <div class="profileHeader">
                         <h2><?php echo $userData->users_username;?></h2>
                         <?php
-                            if($is_already_friends){
+                            if($isAlreadyFriends){
                                 echo '<form method="post"><button name="removefriend" class="profilebtns">Remove Friend</button></form>';
-                            }else if($check_req_sender){
+                            }else if($checkReqSender){
                                 echo '<form method="post"><button name="cancelreq" class="profilebtns">Cancel Request</button></form>';
                             }else{
                                 echo '<form method="post"><button name="addfriend" class="profilebtns">Add Friend</button></form>';
@@ -47,8 +47,8 @@
                     </div>
                     <div class="description">
                         <div class="stats">
-                            <p><?php echo $get_post_num; ?> Posts</p>
-                            <p><?php echo $get_frnd_num; ?> Friends</p>
+                            <p><?php echo $getPostNum; ?> Posts</p>
+                            <p><?php echo $getFrndNum; ?> Friends</p>
                         </div>
                         <p>User Description: <?php echo $_SESSION["userprofiledescription"]; ?>
                         </p>
@@ -57,8 +57,8 @@
             </div>
             <div class="profilePosts">
                 <?php
-                    if ($get_post_num > 0) {
-                        foreach($get_all_posts as $row){
+                    if ($getPostNum > 0) {
+                        foreach($getAllPosts as $row){
                             echo '<div class="post"><img src="'.$row->post_picture.'" alt="User Post">
                             '.$row->post_description.'</div>';
                         }

@@ -25,43 +25,41 @@
     <script src="https://kit.fontawesome.com/2bd3308741.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div>
-        <?php
-            include("includes/header.inc.php");
-        ?>
-        <main>
-            <div class="profile">
-                <img src="<?php echo $_SESSION["userprofilepicture"]; ?>" alt="User Profile Image">
-                <div class="details">
-                    <div class="profileHeader">
-                        <h2><?php echo $_SESSION["userusername"];?></h2>
-                        <button class="profilebtns" onclick="window.location.href='editProfile.php'">Edit Profile <i class="fa-solid fa-gear"></i></button>
+    <?php
+        include("includes/header.inc.php");
+    ?>
+    <main>
+        <div class="profile">
+            <img src="<?php echo $_SESSION["userprofilepicture"]; ?>" alt="User Profile Image">
+            <div class="details">
+                <div class="profileHeader">
+                    <h2><?php echo $_SESSION["userusername"];?></h2>
+                    <button class="profilebtns" onclick="window.location.href='editProfile.php'">Edit Profile <i class="fa-solid fa-gear"></i></button>
+                </div>
+                <div class="description">
+                    <div class="stats">
+                        <p><?php echo $getPostNum; ?> Posts</p>
+                        <p><?php echo $getFrndNum; ?> Friends</p>
                     </div>
-                    <div class="description">
-                        <div class="stats">
-                            <p><?php echo $get_post_num; ?> Posts</p>
-                            <p><?php echo $get_frnd_num; ?> Friends</p>
-                        </div>
-                        <p>User Description: <?php echo $_SESSION["userprofiledescription"]; ?></p>
-                    </div>
+                    <p>User Description: <?php echo $_SESSION["userprofiledescription"]; ?></p>
                 </div>
             </div>
-            <div class="profileposts">
-                <?php
-                    if ($get_post_num > 0) {
-                        foreach($get_all_posts as $row){
-                            echo '<div class="post"><img src="'.$row->post_picture.'" alt="User Post">
-                                '.$row->post_description.'</div>';
-                        }
-                    }else{
-                        echo 'No user posts!';
+        </div>
+        <div class="profileposts">
+            <?php
+                if ($getPostNum > 0) {
+                    foreach($getAllPosts as $row){
+                        echo '<div class="post"><img src="'.$row->post_picture.'" alt="User Post">
+                            '.$row->post_description.'</div>';
                     }
-                ?>
-            </div>
-        </main>
-        <?php
-            include("includes/footer.inc.php");
-        ?>
-    </div>
+                }else{
+                    echo 'No user posts!';
+                }
+            ?>
+        </div>
+    </main>
+    <?php
+        include("includes/footer.inc.php");
+    ?>
 </body>
 </html>

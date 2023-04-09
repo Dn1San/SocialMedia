@@ -24,10 +24,10 @@
                 exit();
             }
 
-            $all_posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $allPosts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
             if($sendData){
-                return $all_posts;
+                return $allPosts;
             }else{
                 return $stmt->rowCount();
             }

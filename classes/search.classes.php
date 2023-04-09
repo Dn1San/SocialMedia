@@ -2,7 +2,7 @@
     class Search extends Dbh{
         
         // Find by user id
-        function find_user_by_id($id){
+        function findUserById($id){
             $stmt = $this->connect()->prepare('SELECT * FROM users WHERE users_id = ?;');
 
             if(!$stmt->execute(array($id))) {
@@ -22,7 +22,7 @@
         }
 
         // Fetch all users
-        function all_users($id){
+        function allUsers($id){
 
             $stmt = $this->connect()->prepare('SELECT users_id, users_username FROM users WHERE users_id != ?');
 

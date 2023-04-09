@@ -11,13 +11,13 @@
     $profile = new UserProfile();
 
     // Retrieve total requests
-    $get_req_num = $friend->request_notification($_SESSION['userid'], false);
+    $getReqNum = $friend->requestNotification($_SESSION['userid'], false);
     // Retrieve total friends
-    $get_frnd_num = $friend->get_all_friends($_SESSION['userid'], false);
+    $getFrndNum = $friend->getAllFriends($_SESSION['userid'], false);
     // Retrieve total friend requests
-    $get_req_num = $friend->request_notification($_SESSION['userid'], false);
+    $getReqNum = $friend->requestNotification($_SESSION['userid'], false);
     // Retrive request notification
-    $get_req_noti = $friend->request_notification($_SESSION['userid'], true);
+    $getReqNoti = $friend->requestNotification($_SESSION['userid'], true);
     // Retrive all friends
-    $get_all_friends = $friend->get_all_friends($_SESSION['userid'], true);
+    $getAllFriends = $friend->getAllFriends($_SESSION['userid'], true);
 ?>

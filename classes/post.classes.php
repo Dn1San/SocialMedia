@@ -57,12 +57,12 @@
             }
         }
 
-        public function deletePost($postID) {
+        public function deletePost($postId) {
             session_start();
             if (isset($_SESSION['userid'])){
                 $stmt = $this->connect()->prepare('DELETE FROM userposts WHERE post_id=? AND user_id=?');
 
-                if(!$stmt->execute(array($postID, $_SESSION['userid']))) {
+                if(!$stmt->execute(array($postId, $_SESSION['userid']))) {
                 $stmt = null;
                 header("location: ../editProfile.php?error=stmtfailed");
                 exit();
@@ -72,8 +72,7 @@
             }
         }
 
-        public function getUserPosts($id, $send_data) {
-            $return_data = [];
+        public function getUserPosts($id, $sendData) {
             $postStatus = 'accepted';
 
             $stmt = $this->connect()->prepare('SELECT * FROM userposts WHERE user_id=? AND post_status=?');
@@ -83,10 +82,10 @@
                 header("location: ../myProfile.php?error=stmtfailed");
                 exit();
             }
-            $all_posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $allPosts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-            if($send_data){
-                return $all_posts;
+            if($sendData){
+                return $allPosts;
             }else{
                 return $stmt->rowCount();
             }

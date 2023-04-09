@@ -56,11 +56,11 @@
 
         if($stmt->rowCount() > 0){
           unlink($userProfile->post_picture);
-          
-          $delete_stmt = $this->connect()->prepare('DELETE FROM userprofile WHERE user_id=?');
 
-          if(!$delete_stmt->execute(array($_SESSION['userid']))) {
-            $delete_stmt = null;
+          $deleteStmt = $this->connect()->prepare('DELETE FROM userprofile WHERE user_id=?');
+
+          if(!$deleteStmt->execute(array($_SESSION['userid']))) {
+            $deleteStmt = null;
             header("location: ../editProfile.php?error=stmtfailed");
             exit();
           }

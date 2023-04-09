@@ -9,5 +9,5 @@
     $friend = new Friend();
     
     // Retrive all users
-    $all_users = $search->all_users($_SESSION['userid'])
+    $allUsers = $search->allUsers($_SESSION['userid'])
 ?>

@@ -1,13 +1,7 @@
 <?php
     session_start();
 
-    include "classes/dbh.classes.php";
-    include "classes/notification.classes.php";
-
-    $notification = new Notifications;
-
-    $get_noti_num = $notification->retriveNotifications($_SESSION['userid'], false);
-    $get_all_notis = $notification->retriveNotifications($_SESSION['userid'], true);
+    include "includes/notifications.inc.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,8 +32,8 @@
         <div class="notifications">
             <ul>
                 <?php
-                    if ($get_noti_num > 0) {
-                        foreach($get_all_notis as $row){
+                    if ($getNotiNum > 0) {
+                        foreach($getAllNotis as $row){
                             echo '<li>'.$row->noti_message.'</li>';
                         }
                     }else{

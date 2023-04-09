@@ -9,7 +9,7 @@
     $post = new Post();
 
     $profile->getUserProfile($_SESSION['userid']);
-    $get_frnd_num = $friend->get_all_friends($_SESSION['userid'], false);
-    $get_post_num = $post->getUserPosts($_SESSION['userid'], false);
-    $get_all_posts = $post->getUserPosts($_SESSION['userid'], true);
+    $getFrndNum = $friend->getAllFriends($_SESSION['userid'], false);
+    $getPostNum = $post->getUserPosts($_SESSION['userid'], false);
+    $getAllPosts = $post->getUserPosts($_SESSION['userid'], true);
 ?>

@@ -2,10 +2,10 @@
     class Friend extends Dbh{
 
         // CHECK IF ALREADY FRIENDS
-        public function is_already_friends($my_id, $user_id){
+        public function isAlreadyFriends($myId, $userId){
             $stmt = $this->connect()->prepare('SELECT * FROM userfriends WHERE (friends_one=? AND friends_two=?) OR (friends_one=? AND friends_two=?)');
 
-            if(!$stmt->execute(array($my_id, $user_id, $user_id, $my_id))) {
+            if(!$stmt->execute(array($myId, $userId, $userId, $myId))) {
                 $stmt = null;
                 header("location: ../friendsList.php?error=stmtfailed");
                 exit();
@@ -21,10 +21,10 @@
         }
 
         //  IF I AM THE REQUEST SENDER
-        public function am_i_the_req_sender($my_id, $user_id){
+        public function amITheReqSender($myId, $userId){
             $stmt = $this->connect()->prepare('SELECT * FROM userfriendrequest WHERE request_sender=? AND request_receiver=?');
 
-            if(!$stmt->execute(array($my_id, $user_id))) {
+            if(!$stmt->execute(array($myId, $userId))) {
                 $stmt = null;
                 header("location: ../friendsList.php?error=stmtfailed");
                 exit();
@@ -40,11 +40,11 @@
         }
 
         //  IF I AM THE RECEIVER 
-        public function am_i_the_req_receiver($my_id, $user_id){
+        public function amITheReqReceiver($myId, $userId){
             
             $stmt = $this->connect()->prepare('SELECT * FROM userfriendrequest WHERE request_sender=? AND request_receiver=?');
 
-            if(!$stmt->execute(array($user_id, $my_id))) {
+            if(!$stmt->execute(array($userId, $myId))) {
                 $stmt = null;
                 header("location: ../friendsList.php?error=stmtfailed");
                 exit();
@@ -60,10 +60,10 @@
         }
 
         // CHECK IF REQUEST HAS ALREADY BEEN SENT
-        public function is_request_already_sent($my_id, $user_id){
+        public function isRequestAlreadySent($myId, $userId){
             $stmt = $this->connect()->prepare('SELECT * FROM userfriendrequest WHERE (request_sender=? AND request_receiver=?) OR (request_sender=? AND request_receiver=?)');
 
-            if(!$stmt->execute(array($my_id, $user_id, $user_id, $my_id))) {
+            if(!$stmt->execute(array($myId, $userId, $userId, $myId))) {
                 $stmt = null;
                 header("location: ../friendsList.php?error=stmtfailed");
                 exit();
@@ -79,41 +79,41 @@
         }
 
         // MAKE PENDING FRIENDS (SEND FRIEND REQUEST)
-        public function make_pending_friends($my_id, $user_id){
+        public function makePendingFriends($myId, $userId){
             $stmt = $this->connect()->prepare('INSERT INTO userfriendrequest(request_sender, request_receiver) VALUES(?,?)');
 
-            if(!$stmt->execute(array($my_id, $user_id))) {
+            if(!$stmt->execute(array($myId, $userId))) {
                 $stmt = null;
                 header("location: ../userProfile.php?error=stmtfailed");
                 exit();
             }else{
                 $stmt = null;
-                header("location: userProfile.php?id=".$user_id);
+                header("location: userProfile.php?id=".$userId);
                 exit();
             }
         }
 
         // CANCLE FRIEND REQUEST
-        public function cancel_or_ignore_friend_request($my_id, $user_id){
+        public function cancelOrIgnoreFriendRequest($myId, $userId){
             $stmt = $this->connect()->prepare('DELETE FROM userfriendrequest WHERE (request_sender=? AND request_receiver=?) OR (request_sender=? AND request_receiver=?)');
 
-            if(!$stmt->execute(array($my_id, $user_id, $user_id, $my_id))) {
+            if(!$stmt->execute(array($myId, $userId, $userId, $myId))) {
                 $stmt = null;
                 header("location: friendsList.php?error=stmtfailed");
                 exit();
             }else{
                 $stmt = null;
-                header("location: userProfile.php?id=".$user_id);
+                header("location: userProfile.php?id=".$userId);
                 exit();
             }
 
         }
 
         // MAKE FRIENDS
-        public function make_friends($my_id, $user_id){
+        public function makeFriends($myId, $userId){
             $stmt = $this->connect()->prepare('DELETE FROM userfriendrequest WHERE (request_sender=? AND request_receiver=?) OR (request_sender=? AND request_receiver=?)');
 
-            if(!$stmt->execute(array($my_id, $user_id, $user_id, $my_id))) {
+            if(!$stmt->execute(array($myId, $userId, $userId, $myId))) {
                 $stmt = null;
                 header("location: ../friendsList.php?error=stmtfailed");
                 exit();
@@ -122,7 +122,7 @@
 
             $stmt = $this->connect()->prepare('INSERT INTO userfriends(friends_one, friends_two) VALUES(?, ?)');
 
-            if(!$stmt->execute(array($my_id, $user_id))) {
+            if(!$stmt->execute(array($myId, $userId))) {
                 $stmt = null;
                 header("location: friendsList.php?error=stmtfailed");
                 exit();
@@ -134,30 +134,30 @@
         }
 
         // DELETE FRIENDS 
-        public function delete_friends($my_id, $user_id){
+        public function deleteFriends($myId, $userId){
             $stmt = $this->connect()->prepare('DELETE FROM userfriends WHERE (friends_one=? AND friends_two=?) OR (friends_one=? AND friends_two=?)');
 
-            if(!$stmt->execute(array($my_id, $user_id, $user_id, $my_id))) {
+            if(!$stmt->execute(array($myId, $userId, $userId, $myId))) {
                 $stmt = null;
-                header("location: userProfile.php?id=".$user_id."error=stmtfailed");
+                header("location: userProfile.php?id=".$userId."error=stmtfailed");
                 exit();
             }else{
                 $stmt = null;
-                header("location: userProfile.php?id=".$user_id);
+                header("location: userProfile.php?id=".$userId);
                 exit();
             }
         }
 
         // REQUEST NOTIFICATIONS
-        public function request_notification($my_id, $send_data){
+        public function requestNotification($myId, $sendData){
             $stmt = $this->connect()->prepare('SELECT request_sender, users_username, users_id FROM userfriendrequest JOIN users ON userfriendrequest.request_sender = users.users_id WHERE request_receiver = ?');
 
-            if(!$stmt->execute(array($my_id))) {
+            if(!$stmt->execute(array($myId))) {
                 $stmt = null;
                 header("location: ../friendsList.php?error=stmtfailed");
                 exit();
             }
-            if($send_data){
+            if($sendData){
                 return $stmt->fetchAll(PDO::FETCH_OBJ);
             }
             else{
@@ -168,42 +168,42 @@
         }
 
 
-        public function get_all_friends($my_id, $send_data){
+        public function getAllFriends($myId, $sendData){
             $stmt = $this->connect()->prepare('SELECT * FROM userfriends WHERE friends_one=? OR friends_two=?;');
 
-            if(!$stmt->execute(array($my_id, $my_id))) {
+            if(!$stmt->execute(array($myId, $myId))) {
                 $stmt = null;
                 header("location: ../friendsList.php?error=stmtfailed");
                 exit();
             }
 
-            if($send_data){
-                $return_data = [];
-                $all_users = $stmt->fetchAll(PDO::FETCH_OBJ);
+            if($sendData){
+                $returnData = [];
+                $allUsers = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-                foreach($all_users as $row){
-                    if($row->friends_one == $my_id){
-                        $get_user_stmt = $this->connect()->prepare('SELECT users_id, users_username FROM users WHERE users_id = ?;');
+                foreach($allUsers as $row){
+                    if($row->friends_one == $myId){
+                        $getUserStmt = $this->connect()->prepare('SELECT users_id, users_username FROM users WHERE users_id = ?;');
 
-                        if(!$get_user_stmt->execute(array($row->friends_two))) {
-                            $get_user_stmt = null;
+                        if(!$getUserStmt->execute(array($row->friends_two))) {
+                            $getUserStmt = null;
                             header("location: ../friendsList.php?error=stmtfailed");
                             exit();
                         }
-                        array_push($return_data, $get_user_stmt->fetch(PDO::FETCH_OBJ));
+                        array_push($returnData, $getUserStmt->fetch(PDO::FETCH_OBJ));
                     }else{
-                        $get_user_stmt = $this->connect()->prepare('SELECT users_id, users_username FROM users WHERE users_id = ?;');
+                        $getUserStmt = $this->connect()->prepare('SELECT users_id, users_username FROM users WHERE users_id = ?;');
 
-                        if(!$get_user_stmt->execute(array($row->friends_one))) {
-                            $get_user_stmt = null;
+                        if(!$getUserStmt->execute(array($row->friends_one))) {
+                            $getUserStmt = null;
                             header("location: ../friendsList.php?error=stmtfailed");
                             exit();
                         }
-                        array_push($return_data, $get_user_stmt->fetch(PDO::FETCH_OBJ));
+                        array_push($returnData, $getUserStmt->fetch(PDO::FETCH_OBJ));
                     }
                 }
 
-                return $return_data;
+                return $returnData;
             }
             else{
                 return $stmt->rowCount();
