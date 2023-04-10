@@ -39,7 +39,7 @@ header {
   transform-origin: top left;
 }
 #vertical-header nav ul{
-  transform: translateX(-110%);
+  transform: translateX(-95%);
   transform-origin: top left;
 }
 
@@ -58,6 +58,14 @@ nav a {
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
+}
+.badge{
+  background: #000;
+  display: inline-block;
+  padding: 0 6px;
+  margin-left: 3px;
+  color: #fff;
+  border-radius: 20px;
 }
 #sign-out{
   transform: translateX(-40%)translateY(15vh);
@@ -123,11 +131,9 @@ textarea{
 /* Messages */
 .success {
   color: black;
-  padding: 10px;
   text-align: center;
 }
 .error {
   color: rgb(198, 11, 11);
-  padding: 10px;
   text-align: center;
 }
