@@ -7,6 +7,9 @@
 .createpost h2{
     text-align: center;
     font-size: 30px;
+    font-family: Pacifico;
+    font-weight: 700;
+    font-style: italic;
 }
 .postform {
     margin: 30px;

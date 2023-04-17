@@ -8,4 +8,5 @@
 
     $getPostNum = $admin->reviewPosts(false);
     $reviewPosts = $admin->reviewPosts(true);
+    $getNotiNum = $notification->retriveNotifications($_SESSION["userid"], false);
 ?>

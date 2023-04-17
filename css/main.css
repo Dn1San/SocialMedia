@@ -1,3 +1,4 @@
+@import url('https://fonts.google.com/specimen/Pacifico');
 /* Main */
 main{
   margin: 0px 100px 0px 380px;
@@ -7,6 +8,18 @@ main{
 body {
   background-color: white;
   color: black;
+}
+.logo h1{
+  font-family: Pacifico;
+  font-weight: 700;
+  font-size: 60px;
+  font-style: italic;
+}
+.logo h2{
+  font-family: Pacifico;
+  font-weight: 700;
+  font-size: 27px;
+  font-style: italic;
 }
 
 /* Headings */
@@ -39,7 +52,7 @@ header {
   transform-origin: top left;
 }
 #vertical-header nav ul{
-  transform: translateX(-95%);
+  transform: translateX(-105%);
   transform-origin: top left;
 }
 
@@ -55,9 +68,10 @@ nav li {
 nav a {
   text-decoration: none;
   color: #222;
-  font-size: 20px;
-  font-weight: bold;
-  text-transform: uppercase;
+  font-size: 25px;
+  font-family: Pacifico;
+  font-weight: 700;
+  font-style: italic;
 }
 .badge{
   background: #000;

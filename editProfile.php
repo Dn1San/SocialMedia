@@ -2,6 +2,11 @@
     session_start();
 
     include("classes/dbh.classes.php");
+    include "classes/notification.classes.php";
+
+    $notification= new Notifications();
+
+    $getNotiNum = $notification->retriveNotifications($_SESSION["userid"], false);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,15 +17,6 @@
     <title>Name Media || Edit Profile</title>
     <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
     <link rel="stylesheet" type="text/css" href="CSS/edit.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter"/>
-    <style>
-      #logo h1{
-        font-family: Inter;
-        font-weight: 700;
-        font-size: 60px;
-        font-style: italic;
-      }
-    </style>
     <script src="js/main.js"></script>
 </head>
 <body>

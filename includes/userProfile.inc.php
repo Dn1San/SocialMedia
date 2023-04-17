@@ -20,6 +20,7 @@
     $getFrndNum = $friend->getAllFriends($userData->users_id, false);
     $getPostNum = $post->getUserPosts($userData->users_id, false);
     $getAllPosts = $post->getUserPosts($userData->users_id, true);
+    $getNotiNum = $notification->retriveNotifications($_SESSION["userid"], false);
     
     if(array_key_exists('addfriend', $_POST)) {
         if($checkReqSent === true){

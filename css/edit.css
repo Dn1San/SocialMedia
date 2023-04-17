@@ -7,6 +7,9 @@
 .editprofile h2{
     text-align: center;
     font-size: 30px;
+    font-family: Pacifico;
+    font-weight: 700;
+    font-style: italic;
 }
 .profileform {
     margin: 30px;

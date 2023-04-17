@@ -12,15 +12,6 @@
     <title>Name Media || *username* Profile</title>
     <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
     <link rel="stylesheet" type="text/css" href="CSS/profile.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter"/>
-    <style>
-      #logo h1{
-        font-family: Inter;
-        font-weight: 700;
-        font-size: 60px;
-        font-style: italic;
-      }
-    </style>
     <script src="js/main.js"></script>
     <script src="https://kit.fontawesome.com/2bd3308741.js" crossorigin="anonymous"></script>
 </head>

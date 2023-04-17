@@ -3,6 +3,9 @@
     text-align: center;
     font-size: 35px;
     margin: 20px;
+    font-family: Pacifico;
+    font-weight: 700;
+    font-style: italic;
 }
 .usercontainer{
     display: flex;

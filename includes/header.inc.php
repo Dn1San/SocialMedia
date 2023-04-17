@@ -1,15 +1,12 @@
 <?php
     include "classes/login.classes.php";
-    include "classes/notification.classes.php";
 
     $login = new Login();
-    $notification = new Notifications();
 
     $userIsAnAdmin = $login->checkIfUserIsAdmin();
-    $getNotiNum = $notification->retriveNotifications($_SESSION["userid"], false);
 ?>
 <header id="vertical-header">
-    <div id="logo">
+    <div class="logo">
         <h1>NAME<br>MEDIA</h1>
     </div>
     <nav>

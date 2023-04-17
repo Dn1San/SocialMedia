@@ -20,4 +20,6 @@
     $getReqNoti = $friend->requestNotification($_SESSION['userid'], true);
     // Retrive all friends
     $getAllFriends = $friend->getAllFriends($_SESSION['userid'], true);
+    
+    $getNotiNum = $notification->retriveNotifications($_SESSION["userid"], false);
 ?>

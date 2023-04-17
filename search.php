@@ -13,15 +13,6 @@
     <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
     <link rel="stylesheet" type="text/css" href="CSS/profile.css"/>
     <link rel="stylesheet" type="text/css" href="CSS/friends.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter"/>
-    <style>
-        #logo h1{
-            font-family: Inter;
-            font-weight: 700;
-            font-size: 60px;
-            font-style: italic;
-        }
-    </style>
     <script src="js/main.js"></script>
 </head>
 <body>
