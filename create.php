@@ -29,9 +29,9 @@
                 <h2>Create Post</h2>
                 <form class="postform" action="includes/createPost.inc.php" method="POST" enctype="multipart/form-data">
                     <label for="userpost">Upload Post: </label>
-                    <input type="file" name="userpost">
+                    <input type="file" name="userpost" required>
                     <label for="postdescription">Post Description: </label>
-                    <textarea name="postdescription"></textarea>
+                    <textarea name="postdescription" maxlength="250"></textarea>
                     <button type="submit" name="submit">Done</button>
                 </form>
             </div>

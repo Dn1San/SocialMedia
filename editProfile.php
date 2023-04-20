@@ -29,9 +29,9 @@
                 <h2>Edit Profile</h2>
                 <form class="profileform" action="includes/changeProfile.inc.php" method="POST" enctype="multipart/form-data">
                     <label for="profilepic">Upload profile picture</label>
-                    <input type="file" name="profilepic">
+                    <input type="file" name="profilepic" required>
                     <label for="description">Profile Description</label>
-                    <textarea name="description"></textarea>
+                    <textarea name="description" maxlength="250"></textarea>
                     <button type="submit" name="submit">Done</button>
                 </form>
             </div>

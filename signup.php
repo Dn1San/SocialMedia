@@ -17,12 +17,12 @@
   <div class="registerbox">
     <h2>SIGN UP</h2>
     <form action="includes/signup.inc.php" method="POST">
-      <input type="text" placeholder="Full Name" name="full_name"/>
-      <input type="text" placeholder="Username" name="username"/>
-      <input type="password" placeholder="Password" name="password"/>
-      <input type="email" placeholder="Email" name="email"/>
-      <input type="number" placeholder="Phone Number" name="phone_number"/>
-      <input type="date" placeholder="Date Of Birth" name="date_of_birth"/>
+      <input type="text" placeholder="Full Name" name="full_name" required autofocus/>
+      <input type="text" placeholder="Username" name="username" min="3" max="20" required/>
+      <input type="password" placeholder="Password" name="password" min="3" max="20" required/>
+      <input type="email" placeholder="Email" name="email" required/>
+      <input type="number" placeholder="Phone Number" name="phone_number"  pattern="[0-9]{11}" required/>
+      <input type="date" placeholder="Date Of Birth" name="date_of_birth" min="1940-12-31" max="2025-12-31" required/>
       <button class="registerbtn1" type="submit" name="submit">Finish</button>
     </form>
     <?php
@@ -33,6 +33,16 @@
           echo "<p class='error'> missing input! please fill out all the boxs.</p>";
         }else if ($_GET["error"] == "usernameoremailtaken") {
           echo "<p class='error'> Username or email has already been taken!</p>";
+        }else if ($_GET["error"] == "email") {
+          echo "<p class='error'> please enter a valid email!</p>";
+        }else if ($_GET["error"] == "usernameshort") {
+          echo "<p class='error'> please enter a username with 4 or more characters!</p>";
+        }else if ($_GET["error"] == "passwordshort") {
+          echo "<p class='error'> please enter a password with 4 or more characters!</p>";
+        }else if ($_GET["error"] == "invalidphonenumber") {
+          echo "<p class='error'> please enter a valid phone number!</p>";
+        }else if ($_GET["error"] == "username") {
+          echo "<p class='error'> please enter a username with no special characters!</p>";
         }
       }
     ?>

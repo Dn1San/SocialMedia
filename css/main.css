@@ -82,7 +82,7 @@ nav a {
   border-radius: 20px;
 }
 #sign-out{
-  transform: translateX(-40%)translateY(15vh);
+  transform: translateX(-40%)translateY(14vh);
   transform-origin: top left;
 }
 

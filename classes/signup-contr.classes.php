@@ -22,17 +22,23 @@
             if($this->emptyInput() == false){
                 header("location: ../signup.php?error=emptyinput");
                 exit();
-            }
-            if($this->invalidUsername() == false){
+            }if($this->invalidUsername() == false){
                 header("location: ../signup.php?error=username");
                 exit();
-            }
-            if($this->invalidEmail() == false){
+            }if($this->invalidEmail() == false){
                 header("location: ../signup.php?error=email");
                 exit();
-            }
-            if($this->usernameOrEmailTakenCheck() == false){
+            }if($this->usernameOrEmailTakenCheck() == false){
                 header("location: ../signup.php?error=usernameoremailtaken");
+                exit();
+            }if($this->usernameLength() == false){
+                header("location: ../signup.php?error=usernameshort");
+                exit();
+            }if($this->passwordLength() == false){
+                header("location: ../signup.php?error=passwordshort");
+                exit();
+            }if($this->phoneNumberLength() == false){
+                header("location: ../signup.php?error=invalidphonenumber");
                 exit();
             }
 
@@ -80,6 +86,39 @@
             }
             else{
                 $result = true;
+            }
+            return $result;
+        }
+
+        private function usernameLength() {
+            $result;
+            if(strlen($this->username) > 3){
+                $result = true;
+            }
+            else{
+                $result = false;
+            }
+            return $result;
+        }
+
+        private function passwordLength() {
+            $result;
+            if(strlen($this->password) > 3){
+                $result = true;
+            }
+            else{
+                $result = false;
+            }
+            return $result;
+        }
+
+        private function phoneNumberLength() {
+            $result;
+            if(strlen($this->phoneNumber) == 11){
+                $result = true;
+            }
+            else{
+                $result = false;
             }
             return $result;
         }
