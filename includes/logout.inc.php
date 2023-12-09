@@ -4,5 +4,5 @@
     session_destroy();
 
     // Logging out of profile page
-    header("location: ../login.php?error=none");
+    header("location: ../index.php?error=none");
 ?>
